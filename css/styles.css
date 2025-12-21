@@ -1,0 +1,23 @@
+:root{
+    --Blanc:#F4F4F4;
+    --Negre:#001219;
+    --TurquesaFosc: #005F73;
+    --TurquesaMitja: #0A9396;
+    --TurquesaClar: #94D2BD;
+    --Crema: #E9D8A6;
+    --TaronjaClar: #EE9B00;
+    --TaronjaMitja: #CA6702;
+    --TaronjaFosc: #BB3E03;
+    --Vermell: #AE2012;
+    --Grana: #9B2226;
+}
+.menu-item{
+    font-family: "hoefler-text";
+    color: var(--Crema, #E9D8A6);
+    text-align: center;
+    font-family: "Hoefler Text";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
