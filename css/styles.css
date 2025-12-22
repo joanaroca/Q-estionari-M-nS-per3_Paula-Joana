@@ -10,6 +10,7 @@
     --TaronjaFosc: #BB3E03;
     --Vermell: #AE2012;
     --Grana: #9B2226;
+    --h1-font: "Gazpacho", "Hoefler Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
 }
 .no-margins, body, html{
     margin: 0;
@@ -192,6 +193,13 @@
 
 /* DESCOBREIX EL TEU PLAT IDEAL */
 /* caixa menú */
+h1.menu-item{
+    font-size: 40px;
+    margin: 0;
+    line-height: 1.02;
+    text-align: center;
+    color: var(--Crema);
+}
 .top-nav.discover{
     background: var(--TurquesaFosc);
     color: var(--Crema);
@@ -251,9 +259,10 @@
     justify-content: center;
     padding: 40px 20px;
     /* white circular spotlight at center above the turquesa background */
-    background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 6%, rgba(255,255,255,0.0) 30%), var(--TurquesaFosc);
+    background: var(--TurquesaFosc);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 .hero-simple .hero-inner{ text-align:center; max-width: 920px; }
 .center-food{
@@ -263,5 +272,36 @@
     height: auto;
     filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
 }
+
+/* create a large, blurred spotlight that covers ~65% of the hero area */
+.hero-simple::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 65vw; /* roughly 65% of viewport width */
+    height: 65vh; /* cover ~65% of viewport height */
+    max-width: 1200px;
+    max-height: 1200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 30%, rgba(255,255,255,0.0) 70%);
+    filter: blur(28px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ensure hero content sits above the spotlight */
+.hero-simple .hero-inner{ position: relative; z-index: 1; }
+
+/* Global H1 styling: use a shared font and easy-to-change class */
+h1, .site-h1{
+    font-family: var(--h1-font);
+    color: var(--Negre);
+    margin: 0 0 12px 0;
+    line-height: 1.05;
+}
+
+/* Utility class to apply site-wide H1 look */
+.site-h1{ font-weight: 800; letter-spacing: -0.02em; }
 
 
