@@ -265,3 +265,34 @@
 }
 
 
+/*VIURE*/
+/*ESTILS HEADER*/
+.Quiz-Header{
+    background-color: var(--TaronjaMitja);
+    padding: 25px;
+    margin: auto;
+    font-family: 'Hoefler Text';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--Crema);
+    height: 50px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.Quiz-Header ul{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.Quiz-Header-Pregunta{
+    font-family: 'Hoefler Text';
+    color: var(--Crema);
+    font-weight: 700;
+    font-size: 48px;
+}
+
