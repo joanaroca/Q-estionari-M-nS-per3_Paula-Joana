@@ -306,3 +306,26 @@ h1, .site-h1{
 /* Utility class to apply site-wide H1 look */
 .site-h1{ font-weight: 800; letter-spacing: -0.02em; }
 
+/* page transition fade (used when navigating between discover pages) */
+html, body{ transition: opacity 600ms ease; }
+body.page-fade-out{ opacity: 0; }
+
+/* make center images clickable */
+.center-food{ cursor: pointer; }
+
+/* theme overrides for different discover pages */
+body.theme-turquesa .top-nav.discover{ background: var(--TurquesaFosc); color: var(--Crema); }
+body.theme-taronja .top-nav.discover{ background: var(--TaronjaMitja); color: var(--Blanc); }
+body.theme-vermell .top-nav.discover{ background: var(--Vermell); color: var(--Blanc); }
+body.theme-turquesaclar .top-nav.discover{ background: var(--TurquesaClar); color: var(--Negre); }
+
+/* page body background per themed discover pages */
+body.theme-taronja{ background: var(--TaronjaMitja); }
+body.theme-vermell{ background: var(--Vermell); }
+body.theme-turquesaclar{ background: var(--TurquesaClar); }
+
+/* ensure hero uses the themed base color (spotlight kept) */
+body.theme-taronja .hero-simple{ background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 6%, rgba(255,255,255,0.0) 30%), var(--TaronjaMitja); }
+body.theme-vermell .hero-simple{ background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 6%, rgba(255,255,255,0.0) 30%), var(--Vermell); }
+body.theme-turquesaclar .hero-simple{ background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 6%, rgba(255,255,255,0.0) 30%), var(--TurquesaClar); }
+
