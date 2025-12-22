@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MónSúper3</title>
+    <title>Món Súper 3</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,6 +13,36 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  
+    <!-- Top horizontal navigation -->
+    <header class="top-nav" role="banner">
+        <div class="nav-container">
+            <div class="nav-logo" aria-hidden="true">El mon dels <strong>Super 3</strong></div>
+            <nav class="nav-links" role="navigation" aria-label="Menú principal">
+                <ul>
+                    <li><a href="index.html" class="nav-link active" aria-current="page">El mon dels super 3</a></li>
+                    <li><a href="#informacio" class="nav-link">Informació</a></li>
+                    <li><a href="#contacte" class="nav-link">Contacta'ns</a></li>
+                    <li><a href="#comencar" class="btn-primary">Començar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+    <!-- Hero with background sky, centered planet and translucent button -->
+    <main class="page-hero" role="main">
+        <div class="hero-inner">
+            <img src="img/1-planeta.png" alt="Planeta 1" class="planet" id="planeta">
+
+            <button id="showNauBtn" class="btn-translucent" aria-controls="nau" aria-pressed="false">Començar</button>
+
+            <!-- Nau initially hidden; will appear when button is pressed -->
+            <img src="img/1-nau.png" alt="Nau espacial" id="nau" class="nau" aria-hidden="true">
+        </div>
+    </main>
+
+    <script src="js/js.js"></script>
+</body>
+</html>
+
 </body>
 </html>
