@@ -69,8 +69,9 @@
 }
 
 body {
-  overflow: hidden;
+  overflow: auto; /* allow page scrolling for the Problema page */
   font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* VIEWPORT */
@@ -169,3 +170,72 @@ body {
   background: black;
   color: white;
 }
+
+/*PROBLEMES (molts)*/
+.header{
+    position: fixed;
+    z-index: 100;
+}
+.contenidor-problema{
+  position: relative;
+  width: 100%;
+  height: 70%;
+  background-image: url('../img/40-fusta.jpg');
+  background-position: top center;
+  display: block;
+  overflow: visible;
+}
+
+/* each .solucio is one viewport tall and stacked vertically inside the big container */
+.contenidor-problema .solucio{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* center the heading text and keep it above images */
+.contenidor-problema .solucio .prob{
+  z-index: 5;
+  text-align: center;
+}
+
+/* images sit around the centered text; we'll place them with absolute positions
+   and scale responsively */
+.contenidor-problema .solucio img{
+  position: absolute;
+  max-width: 28vw;
+  height: auto;
+  z-index: 4;
+  opacity: 0.95;
+}
+
+/* simple placements: 1st image left center, 2nd right center, 3rd bottom-left (if present) */
+.contenidor-problema .solucio img:nth-of-type(1){ left: 6%; top: 50%; transform: translateY(-50%); }
+.contenidor-problema .solucio img:nth-of-type(2){ right: 6%; top: 50%; transform: translateY(-50%); }
+.contenidor-problema .solucio img:nth-of-type(3){ left: 22%; bottom: 8%; transform: translateY(0%); }
+
+/* make text readable on top of wood background */
+.contenidor-problema .solucio .prob{
+  color: var(--Crema);
+  font-size: clamp(28px, 4vw, 48px);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  padding: 12px 18px;
+}
+
+.contenidor-problema img{
+  height: auto;
+  max-height: 40vh;
+}
+.prob {
+    font-family: 'hoefler text';
+    font-weight: lighter;
+    color: var(--Crema);
+    font-size: 40px;
+}
+
+
+
