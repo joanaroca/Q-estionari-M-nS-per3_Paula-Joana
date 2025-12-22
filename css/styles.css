@@ -11,12 +11,17 @@
     --Vermell: #AE2012;
     --Grana: #9B2226;
 }
+.no-margins, body, html{
+    margin: 0;
+    padding: 0;
+}
+/* MENÚ */
 .menu-item{
     font-family: "hoefler-text";
     color: var(--Crema, #E9D8A6);
     text-align: center;
     font-family: "Hoefler Text";
-    font-size: 32px;
+    font-size: 50px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -28,16 +33,17 @@
     color: var(--Blanc);
     position: sticky;
     top: 0;
-    z-index: 40;
+    z-index: 450;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    padding: 20px 0;
 }
 .nav-container{
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 18px 24px;
 }
 .nav-logo{
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -61,45 +67,55 @@
     font-weight: 600;
 }
 
-/* Page hero: sky background, centered planet and translucent button */
+/* FONS */
 .page-hero{
-    min-height: calc(100vh - 64px);
+    /* remove gaps between menu and hero: body margins are zero */
+    min-height: calc(100vh - 96px);
     background-image: url('../img/1-cel.jpg');
-    background-size: cover;
-    background-position: center center;
+    /* start zoomed-in so only top of image is visible */
+    background-size: 160%;
+    background-position: top center;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 0; /* eliminate hero padding */
+    transition: background-size 1200ms ease;
+    position: relative; /* needed for overlay */
 }
 .hero-inner{
     position: relative;
     text-align: center;
 }
+/* PLANETA */
 .planet{
-    width: min(360px, 55vw);
+    /* bigger planet as requested */
+    width: min(720px, 80vw);
     height: auto;
     display: block;
     margin: 0 auto;
     transform: translateY(0);
 }
 
-/* Translucid button under the planet */
+/* BUTO COMENÇAR*/
 .btn-translucent{
     margin-top: 18px;
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.18); /* translucent look */
     color: var(--Negre);
     border: 1px solid rgba(0,0,0,0.08);
-    padding: 10px 18px;
+    padding: 12px 18px;
     border-radius: 12px;
     font-weight: 700;
     cursor: pointer;
     backdrop-filter: blur(4px);
-    transition: transform 180ms ease, opacity 180ms ease;
+    transition: transform 180ms ease, opacity 180ms ease, background-color 300ms ease, color 300ms ease;
+    font-family: "Gazpacho", "Hoefler Text", "Inter", sans-serif;
+    font-size: 40px;
+    text-align: center;
+    line-height: normal;
 }
 .btn-translucent:hover{ transform: translateY(-3px); }
 
-/* Nau (spaceship) hidden by default; will fade/translate in */
+/* NAU ESPACIAL*/
 .nau{
     position: absolute;
     left: 50%;
@@ -116,7 +132,136 @@
     pointer-events: auto;
 }
 
+/* ZOOM PÀGINA */
+.page-hero.zoom-out{
+    background-size: 100%;
+}
+
+/* Button active state: swap colors between background and text */
+.btn-translucent.active{
+    background: var(--Negre);
+    color: var(--Crema);
+    border-color: rgba(255,255,255,0.12);
+}
+
 @media (max-width: 480px){
-    .planet{ width: min(260px, 70vw); }
+    .planet{ width: min(420px, 75vw); }
     .nau{ width: 110px; }
 }
+
+/* CANVI DE PÀGINA */
+.zoom-overlay{
+    position: absolute;
+    inset: 0; /* cover the hero */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms ease, background-color 400ms ease;
+}
+.page-hero.zoom-out .zoom-overlay{
+    opacity: 1;
+    pointer-events: auto;
+    background: rgba(233,216,166,0.92); /* cream translucent layer */
+}
+.big-title{
+    margin: 0;
+    font-size: clamp(28px, 6vw, 88px);
+    line-height: 1.02;
+    text-align: center;
+    color: var(--Negre);
+    max-width: 75%;
+}
+.down-arrow{
+    background: transparent;
+    border: none;
+    font-size: 48px;
+    cursor: pointer;
+    color: var(--Negre);
+    padding: 8px 12px;
+}
+.page-hero.zoom-out .btn-translucent{
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+
+/* DESCOBREIX EL TEU PLAT IDEAL */
+/* caixa menú */
+.top-nav.discover{
+    background: var(--TurquesaFosc);
+    color: var(--Crema);
+    box-shadow: none;
+}
+.top-nav.discover .nav-container{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px 28px;
+}
+.top-nav.discover .nav-left{
+    margin-left: 12px;
+}
+.top-nav.discover .nav-left .nav-logo{ 
+    font-size: 18px; 
+    font-family: "Gazpacho", "Inter", sans-serif;
+    color: var(--Crema); 
+    text-decoration: none; 
+    font-weight: 300;
+}
+.top-nav.discover .nav-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(20px, 3.8vw, 40px);
+    font-weight: 800;
+    text-align: center;
+    color: var(--Crema);
+}
+.top-nav.discover .nav-right{ margin-right: 12px; }
+.top-nav.discover .nav-right .circle{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--TurquesaFosc);
+    border: 3px solid var(--Crema); /* cream contour */
+    color: var(--Crema);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.discover-main .discover-heading{ text-align:center; margin-top: 80px; font-size: 36px; }
+.discover-main .discover-sub{ text-align:center; color: rgba(0,0,0,0.6); }
+
+/* HERO SIMPLE: turquesa fosc with central white spotlight */
+.hero-simple{
+    min-height: calc(100vh - 96px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    /* white circular spotlight at center above the turquesa background */
+    background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 6%, rgba(255,255,255,0.0) 30%), var(--TurquesaFosc);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.hero-simple .hero-inner{ text-align:center; max-width: 920px; }
+.center-food{
+    display: block;
+    margin: 0 auto 18px auto;
+    width: clamp(220px, 42vw, 520px);
+    height: auto;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.35));
+}
+
+

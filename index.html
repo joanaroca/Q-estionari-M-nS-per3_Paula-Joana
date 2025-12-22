@@ -11,38 +11,43 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- Top horizontal navigation -->
-    <header class="top-nav" role="banner">
-        <div class="nav-container">
-            <div class="nav-logo" aria-hidden="true">El mon dels <strong>Super 3</strong></div>
-            <nav class="nav-links" role="navigation" aria-label="Menú principal">
-                <ul>
-                    <li><a href="index.html" class="nav-link active" aria-current="page">El mon dels super 3</a></li>
-                    <li><a href="#informacio" class="nav-link">Informació</a></li>
-                    <li><a href="#contacte" class="nav-link">Contacta'ns</a></li>
-                    <li><a href="#comencar" class="btn-primary">Començar</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 </body>
-    <!-- Hero with background sky, centered planet and translucent button -->
-    <main class="page-hero" role="main">
-        <div class="hero-inner">
-            <img src="img/1-planeta.png" alt="Planeta 1" class="planet" id="planeta">
+    </head>
+    <body class="no-margins">
+        <!-- Top horizontal navigation -->
+        <header class="top-nav" role="banner">
+            <div class="nav-container">
+                <div class="nav-logo" aria-hidden="true">El mon dels <strong>Super 3</strong></div>
+                <nav class="nav-links" role="navigation" aria-label="Menú principal">
+                    <ul>
+                        <li><a href="index.html" class="nav-link active" aria-current="page">El mon dels super 3</a></li>
+                        <li><a href="#informacio" class="nav-link">Informació</a></li>
+                        <li><a href="#contacte" class="nav-link">Contacta'ns</a></li>
+                        <li><a href="#comencar" class="btn-primary">Començar</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
-            <button id="showNauBtn" class="btn-translucent" aria-controls="nau" aria-pressed="false">Començar</button>
+        <!-- Hero with background sky, centered planet and translucent button -->
+        <main class="page-hero" role="main">
+            <div class="hero-inner">
+                <img src="img/1-planeta.png" alt="Planeta 1" class="planet" id="planeta">
 
-            <!-- Nau initially hidden; will appear when button is pressed -->
-            <img src="img/1-nau.png" alt="Nau espacial" id="nau" class="nau" aria-hidden="true">
-        </div>
-    </main>
+                <button id="showNauBtn" class="btn-translucent" aria-controls="nau" aria-pressed="false">Començar</button>
 
-    <script src="js/js.js"></script>
-</body>
-</html>
+                <!-- Nau initially hidden; will appear when button is pressed -->
+                <img src="img/1-nau.png" alt="Nau espacial" id="nau" class="nau" aria-hidden="true">
+            </div>
 
-</body>
-</html>
+            <!-- Overlay shown when zoomed-out: cream translucent layer + big title + down arrow -->
+            <div class="zoom-overlay" role="region" aria-hidden="true">
+                <h1 class="big-title">Descobreix a quin món de dibuixos pertanys!</h1>
+                <button id="downArrowBtn" class="down-arrow" aria-label="Anar a la informació">▾</button>
+            </div>
+        </main>
+
+
+        <script src="js/js.js"></script>
+    </body>
+    </html>
