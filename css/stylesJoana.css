@@ -1,0 +1,171 @@
+:root{
+    --Blanc:#F4F4F4;
+    --Negre:#001219;
+    --TurquesaFosc: #005F73;
+    --TurquesaMitja: #0A9396;
+    --TurquesaClar: #94D2BD;
+    --Crema: #E9D8A6;
+    --TaronjaClar: #EE9B00;
+    --TaronjaMitja: #CA6702;
+    --TaronjaFosc: #BB3E03;
+    --Vermell: #AE2012;
+    --Grana: #9B2226;
+    --h1-font: "Gazpacho", "Hoefler Text", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+.no-margins, body, html{
+    margin: 0;
+    padding: 0;
+}
+/*VIURE*/
+/*ESTILS HEADER*/
+.Quiz-Header{
+    background-color: var(--TaronjaMitja);
+    padding: 25px;
+    margin: auto;
+    font-family: 'Hoefler Text';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--Crema);
+    position: relative; /* enable absolute positioning for inner title */
+    min-height: 68px; /* ensure space for large h1 */
+}
+.Quiz-Header ul{
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.Quiz-Header li{
+    padding: 4px;
+}
+.Quiz-Header a{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--Crema);
+    height: 50px;
+}
+
+.Quiz-Header-Pregunta{
+    font-family: 'Hoefler Text';
+    color: var(--Crema);
+    font-weight: 700;
+    font-size: 48px;
+    margin: 0;
+    position: absolute; /* keep it centered regardless of other li widths */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 80%;
+    box-sizing: border-box;
+}
+
+/*Estils finestra*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* VIEWPORT */
+.viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* PAISATGES */
+.landscape {
+  position: absolute;
+  inset: 0;
+}
+
+.landscape {
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.landscape.active {
+  opacity: 1;
+}
+
+/* PERSIANA (shutter) - start hidden above viewport and animate with keyframes for smoothness + bounce */
+.shutter {
+    position: absolute;
+    bottom: 0; /* align with top so the image won't be clipped at bottom */
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    z-index: 20; /* above window */
+    transform: translateY(90%); /* start hidden above */
+    will-change: transform;
+}
+
+/* Closing animation (shutter goes down and slightly overshoots for bounce) */
+.shutter.closing {
+    animation: shutterClose 700ms cubic-bezier(.22,.8,.28,1) forwards;
+}
+
+/* Opening animation (shutter goes up with slight bounce) */
+.shutter.opening {
+    animation: shutterOpen 700ms cubic-bezier(.22,.8,.28,1) forwards;
+}
+
+@keyframes shutterClose {
+    0% { transform: translateY(-100%) translateX(0); }
+    60% { transform: translateY(8%) translateX(0); } /* overshoot slightly */
+    80% { transform: translateY(-3%) translateX(0); }
+    100% { transform: translateY(0%) translateX(0); }
+}
+
+@keyframes shutterOpen {
+    0% { transform: translateY(0%) translateX(0%); }
+    60% { transform: translateY(-110%) translateX(0%); }
+    80% { transform: translateY(-95%) translateX(0%); }
+    100% { transform: translateY(-100%) translateX(0%); }
+}
+
+/* FINESTRA */
+.window {
+    position: absolute;
+    inset: 0;
+    width: 90%;
+    height: 90%; /* ensure it covers the same area as landscapes */
+    object-fit: cover;
+    z-index: 30; /* below shutter */
+    pointer-events: none;
+}
+
+/* OPCIONS */
+.options {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 30;
+}
+
+.options button {
+  padding: 10px 16px;
+  border: none;
+  background: rgba(255,255,255,0.7);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.options button.active {
+  background: black;
+  color: white;
+}
