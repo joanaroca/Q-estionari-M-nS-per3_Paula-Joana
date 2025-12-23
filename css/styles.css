@@ -325,6 +325,84 @@ body.theme-taronja .top-nav.discover .nav-right .circle{ background: var(--Taron
 body.theme-vermell .top-nav.discover .nav-right .circle{ background: var(--Vermell); color: var(--Blanc); }
 body.theme-turquesaclar .top-nav.discover .nav-right .circle{ background: var(--TurquesaClar); color: var(--Negre); }
 
+/* Final page styles: planet partially visible at bottom and solid button */
+.final-hero{
+    /* reduce height so page is shorter */
+    min-height: 75vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* add sky background (zoomed) */
+    background-image: url('../img/1-cel.jpg');
+    background-size: 160%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    transition: background-size 900ms ease;
+}
+.final-inner{ width:100%; display:flex; align-items:flex-end; justify-content:center; padding-bottom: 8vh; position:relative; }
+.final-planet{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -38vh; /* push most of the planet below the fold so only part shows */
+    width: min(900px, 110vw);
+    max-width: 1400px;
+    height: auto;
+    z-index: 0;
+}
+.final-nau{
+    position: absolute;
+    /* fly across near the top of the sky */
+    top: 18%;
+    left: 110%; /* start off to the right */
+    transform: translate(-50%, -50%) scale(0.6);
+    width: 220px;
+    max-width: 34vw;
+    opacity: 0;
+    transition: left 900ms cubic-bezier(.2,.9,.2,1), transform 900ms cubic-bezier(.2,.9,.2,1), opacity 600ms ease;
+    z-index: 3;
+}
+.final-nau.visible{
+    left: 50%;
+    /* keep it at top but enlarge a bit when visible */
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+}
+
+.nau-light{
+    position: absolute;
+    left: 50%;
+    /* place the light slightly below the ship so it illuminates the area beneath */
+    top: 28%;
+    transform: translate(-50%, -50%) scale(0.6);
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255,255,200,0.95) 0%, rgba(255,255,200,0.55) 20%, rgba(255,255,200,0.0) 55%);
+    filter: blur(18px);
+    opacity: 0;
+    transition: opacity 500ms ease, transform 900ms cubic-bezier(.2,.9,.2,1);
+    pointer-events: none;
+    z-index: 2;
+}
+.nau-light.visible{ opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.btn-final{
+    position: relative;
+    z-index: 2;
+    background: var(--Crema);
+    color: var(--Negre);
+    border: none;
+    padding: 12px 22px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: progress; /* indicates calculating */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-size: 20px;
+}
+.final-page .top-nav{ background: var(--TurquesaMitja); }
+
 /* page body background per themed discover pages */
 body.theme-taronja{ background: var(--TaronjaMitja); }
 body.theme-vermell{ background: var(--Vermell); }
