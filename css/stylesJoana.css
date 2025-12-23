@@ -328,71 +328,115 @@ body.poder{
 }
 
 /*CAMINS OKEI???*/
-
-.camins-title{
-  position: relative;
-  margin-top: 100vh;
-}
-.camins-title h1{
-  transform: translateY(40px);
-  opacity: 1;
-}
-.camins ul{
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  list-style: none;
-  gap: 30px;
-
-}
-.camins ul li{
-  width: 20%;
-  height: auto;
-}
-.camins ul li img{
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-  border-radius: 20px;
-}
-.camins ul li p{
-  text-align: center;
-  margin-top: 1rem;
-}
-.camins-wrapper{
-  height: 400vh;
-}
-
-body.camins-contenidor{
+.camins{
   font-family: 'hoefler text';
   color: var(--Crema);
+  background-color: var(--TaronjaClar);
 }
-.camins-contenidor img{
+.camins.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.camins-title{
+  height: 100vh;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  margin: auto;
+  position: absolute;
+  top:0;
 }
-.camins-contenidor h1{
+.camins-title h1{
+  margin: auto;
+  width: 100%;
+  position: relative;
+  top: 20%;
   font-size: 4rem;
   font-weight: 500;
-  line-height: 1;   
+  line-height: 1; 
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 20px;
+  will-change: transform, opacity;
+  transform: translateY(40px);
+  opacity: 0;  
+  z-index: 10;
+  background-color: var(--TaronjaClar);
+  pointer-events: none;
 }
-.camins-contenidor p{
+.camins-opcions{
+  margin-top: 300vh;
+  justify-content: center;
+  align-items: top;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  /* make this the positioning context for absolutely positioned .camins-img children */
+  position: relative;
+  /* configurable spacing and item width used for absolute placement */
+  --gap: 8px;
+  --item-w: 250px; /* matches the image width set below; change if you change image size */
+  /* total width of the 4 items + gaps and the left starting offset to center them */
+  --items-count: 4;
+  --total-w: calc((var(--item-w) * var(--items-count)) + (var(--gap) * (var(--items-count) - 1)));
+  --start: calc(50% - (var(--total-w) / 2));
+  /* vertical spacing: how far each item is shifted relative to the next */
+  --v-gap: 200px;
+  /* base top for the 4th (lowest) item — change to move the whole column up/down */
+  --base-top: 0px;
+}
+
+.camins-opcions p{
   font-size: 2rem;
   font-weight: 500;
   line-height: 1;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
 }
-.camins-contenidor section{
-  position: relative;
-  width: 100%;
-  height: 100svh;
-  padding: 2rem;
-  background-color: var(--TaronjaClar);
-  color: var(--Crema);
+
+.camins-img img{
+  width: 220px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.camins-opcions p:hover{
+  transform: scale(1.01);
+  background-color: var(--Crema);
+  color: var(--TaronjaMitja);
+  opacity: 0.8;
+}
+.camins-img{
+  position: absolute;
+  /* start from the base top; per-item adjustments below will move earlier items up */
+  top: var(--base-top);
+  width: var(--item-w);
+  box-sizing: border-box;
+  width: 220px;
 }
 
-
-
+/* Position the four .camins-img side-by-side with a 20px gap while keeping them absolute. */
+.camins-opcions .camins-img:nth-child(1){
+  left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 0));
+  /* first is 3 * v-gap above the base (4th) */
+  top: calc(var(--base-top) - (var(--v-gap) * 3));
+}
+.camins-opcions .camins-img:nth-child(2){
+  left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 1));
+  /* second is 2 * v-gap above the base (4th) */
+  top: calc(var(--base-top) - (var(--v-gap) * 2));
+}
+.camins-opcions .camins-img:nth-child(3){
+  left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 2));
+  /* third is 1 * v-gap above the base (4th) */
+  top: calc(var(--base-top) - (var(--v-gap) * 1));
+}
+.camins-opcions .camins-img:nth-child(4){
+  left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 3));
+  /* fourth is the base position */
+  top: calc(var(--base-top) + 0px);
+}
