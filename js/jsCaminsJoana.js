@@ -77,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 							opacity: 1,
 						});
 					}
-					//mapes????
 					
 
 				
@@ -94,11 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
 				
 			}); 
 			// STICKY / PIN DE LES IMATGES
-			const caminsImgs = gsap.utils.toArray('.camins-img');
+			const caminsWrappers = gsap.utils.toArray('.camins-img-wrapper');
 
-			caminsImgs.forEach((img, index) => {
+			caminsWrappers.forEach((wrapper) => {
+				const img = wrapper.querySelector('.camins-img');
+
 				ScrollTrigger.create({
-					trigger: img,
+					trigger: wrapper,
 					start: 'bottom 85%',
 					end: '+=1000',
 					pin: true,
@@ -106,14 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
 					scrub: 0.9, //
 				});
 				gsap.to(img, {
-					y: -20,
+					y: -10,
 					scrollTrigger: {
-						trigger: img,
+						trigger: wrapper,
 						start: 'bottom 85%',
 						end: '+=1000',
 						scrub: true
 					}
-					});
+				});
 
 			});
 

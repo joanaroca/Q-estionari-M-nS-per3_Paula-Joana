@@ -326,6 +326,15 @@ body.poder{
     transform: none;
   }       
 }
+.card-back{
+  transition: transform 0,4s ease;
+  transition: opacity 0s ease;
+  transition: color 0.5s
+}
+.card-back :hover{
+  transform: scale(1.01);
+  opacity: 0.6;
+}
 
 /*CAMINS OKEI???*/
 .camins{
@@ -385,17 +394,22 @@ body.poder{
   --base-top: 0px;
 }
 
+
 .camins-opcions p{
   font-size: 2rem;
   font-weight: 500;
   line-height: 1;
   text-align: center;
-  padding: 10px;
+  padding: 10px 0;
   border-radius: 20px;
   cursor: pointer;
   transition: transform 0.3s ease;
   transition: color 0.5s ease;
   transition: background-color 0.5s ease;
+  z-index: 5;
+  position: relative;
+  pointer-events: auto;
+  width: 180px;
 }
 
 .camins-img img{
@@ -410,33 +424,50 @@ body.poder{
   color: var(--TaronjaMitja);
   opacity: 0.8;
 }
-.camins-img{
+
+.camins-img-wrapper{
   position: absolute;
-  /* start from the base top; per-item adjustments below will move earlier items up */
   top: var(--base-top);
   width: var(--item-w);
   box-sizing: border-box;
-  width: 220px;
+}
+.camins-img{
+  pointer-events: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centra horitzontalment img + p */
+  justify-content: flex-start;
+  gap: 16px;             /* espai entre imatge i text */
+  pointer-events: auto;
 }
 
 /* Position the four .camins-img side-by-side with a 20px gap while keeping them absolute. */
-.camins-opcions .camins-img:nth-child(1){
+.camins-opcions .camins-img-wrapper:nth-child(1){
   left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 0));
   /* first is 3 * v-gap above the base (4th) */
   top: calc(var(--base-top) - (var(--v-gap) * 3));
 }
-.camins-opcions .camins-img:nth-child(2){
+.camins-opcions .camins-img-wrapper:nth-child(2){
   left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 1));
   /* second is 2 * v-gap above the base (4th) */
   top: calc(var(--base-top) - (var(--v-gap) * 2));
 }
-.camins-opcions .camins-img:nth-child(3){
+.camins-opcions .camins-img-wrapper:nth-child(3){
   left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 2));
   /* third is 1 * v-gap above the base (4th) */
   top: calc(var(--base-top) - (var(--v-gap) * 1));
 }
-.camins-opcions .camins-img:nth-child(4){
+.camins-opcions .camins-img-wrapper:nth-child(4){
   left: calc(var(--start) + ((var(--item-w) + var(--gap)) * 3));
   /* fourth is the base position */
   top: calc(var(--base-top) + 0px);
+}
+
+.pin-spacer {
+  pointer-events: none;
+}
+
+.pin-spacer > * {
+  pointer-events: auto;
 }
