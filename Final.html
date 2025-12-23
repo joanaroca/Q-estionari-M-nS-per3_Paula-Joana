@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final - Món Súper 3</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="no-margins final-page">
+    <header class="top-nav" role="banner">
+        <div class="nav-container">
+            <div class="nav-logo" aria-hidden="true">El mon dels <strong>Super 3</strong></div>
+            <nav class="nav-links" role="navigation" aria-label="Menú principal">
+                <ul>
+                    <li><a href="index.html" class="nav-link">El mon dels super 3</a></li>
+                    <li><a href="#" class="nav-link">Informació</a></li>
+                    <li><a href="#" class="nav-link">Contacta'ns</a></li>
+                    <li><a href="#" class="btn-primary">Començar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="final-hero" id="finalHero">
+        <div class="final-inner">
+            <img src="img/1-planeta.png" alt="Planeta 1" class="planet final-planet">
+
+            <!-- light that appears under the ship -->
+            <div class="nau-light" id="nauLight" aria-hidden="true"></div>
+
+            <!-- ship that will fly in after 8s -->
+            <img src="img/1-nau.png" alt="Nau espacial" id="finalNau" class="final-nau" aria-hidden="true">
+
+            <button class="btn-final" id="finalBtn">calculant...</button>
+        </div>
+    </main>
+
+    <script>
+        // insert year
+        document.getElementById('any-final').textContent = new Date().getFullYear();
+
+        // after 8 seconds show the ship flying from right to center + light
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var nau = document.getElementById('finalNau');
+                var light = document.getElementById('nauLight');
+                var hero = document.getElementById('finalHero');
+                if (nau) {
+                    nau.classList.add('visible');
+                    nau.setAttribute('aria-hidden','false');
+                }
+                if (light) {
+                    light.classList.add('visible');
+                    light.setAttribute('aria-hidden','false');
+                }
+                // optionally slightly zoom out the background when ship appears
+                if (hero) hero.style.backgroundSize = '110%';
+            }, 8000);
+        });
+    </script>
+</body>
+</html>

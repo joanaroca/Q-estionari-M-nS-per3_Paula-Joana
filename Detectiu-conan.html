@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detectiu Conan - Món Súper 3</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Make the hero taller for this page only while keeping the planet at the same position */
+        .final-hero {
+            /* increase height to be noticeably taller than Final.html */
+            min-height: 95vh;
+        }
+        /* keep the same visual behaviour for the planet and ship */
+        .final-planet {
+            /* ensure it stays at the same visual position as in Final */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -14vh; /* same offset as Final.html configuration */
+            max-width: 80vmin;
+            width: auto;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="no-margins final-page">
+    <header class="top-nav" role="banner">
+        <div class="nav-container">
+            <div class="nav-logo" aria-hidden="true">El mon dels <strong>Super 3</strong></div>
+            <nav class="nav-links" role="navigation" aria-label="Menú principal">
+                <ul>
+                    <li><a href="index.html" class="nav-link">El mon dels super 3</a></li>
+                    <li><a href="#" class="nav-link">Informació</a></li>
+                    <li><a href="#" class="nav-link">Contacta'ns</a></li>
+                    <li><a href="#" class="btn-primary">Començar</a></li>
+                </ul>
+            </nav>
+        
+        </div>
+    </header>
+
+    <main class="final-hero" id="finalHero">
+        <div class="final-inner">
+            <img src="img/1-planeta.png" alt="Planeta 1" class="planet final-planet">
+
+            <!-- light that appears under the ship -->
+            <div class="nau-light" id="nauLight" aria-hidden="true"></div>
+
+            <!-- ship that will fly in after 8s -->
+            <img src="img/1-nau.png" alt="Nau espacial" id="finalNau" class="final-nau" aria-hidden="true">
+
+            <button class="btn-final" id="finalBtn">calculant...</button>
+        </div>
+    </main>
+
+    <script>
+        // insert year if needed (kept for parity with Final.html)
+        var anyEl = document.getElementById('any-final');
+        if (anyEl) anyEl.textContent = new Date().getFullYear();
+
+        // after 8 seconds show the ship flying from right to center + light (same behaviour as Final.html)
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var nau = document.getElementById('finalNau');
+                var light = document.getElementById('nauLight');
+                var hero = document.getElementById('finalHero');
+                if (nau) {
+                    nau.classList.add('visible');
+                    nau.setAttribute('aria-hidden','false');
+                }
+                if (light) {
+                    light.classList.add('visible');
+                    light.setAttribute('aria-hidden','false');
+                }
+                if (hero) hero.style.backgroundSize = '110%';
+            }, 8000);
+        });
+    </script>
+</body>
+</html>
