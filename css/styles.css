@@ -319,6 +319,12 @@ body.theme-taronja .top-nav.discover{ background: var(--TaronjaMitja); color: va
 body.theme-vermell .top-nav.discover{ background: var(--Vermell); color: var(--Blanc); }
 body.theme-turquesaclar .top-nav.discover{ background: var(--TurquesaClar); color: var(--Negre); }
 
+/* circle background per theme (match menu color) */
+body.theme-turquesa .top-nav.discover .nav-right .circle{ background: var(--TurquesaFosc); color: var(--Crema); }
+body.theme-taronja .top-nav.discover .nav-right .circle{ background: var(--TaronjaMitja); color: var(--Blanc); }
+body.theme-vermell .top-nav.discover .nav-right .circle{ background: var(--Vermell); color: var(--Blanc); }
+body.theme-turquesaclar .top-nav.discover .nav-right .circle{ background: var(--TurquesaClar); color: var(--Negre); }
+
 /* page body background per themed discover pages */
 body.theme-taronja{ background: var(--TaronjaMitja); }
 body.theme-vermell{ background: var(--Vermell); }
