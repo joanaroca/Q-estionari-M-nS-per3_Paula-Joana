@@ -5,13 +5,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const prev = body.getAttribute('data-prev');
   const img = document.querySelector('.center-food');
 
-  // click on central image -> Viure2.html (was Escull.html)
+  // click on central image -> Escull.html
   if (img) {
     img.addEventListener('click', function () {
       // fade out then navigate
       body.classList.add('page-fade-out');
       setTimeout(function () {
-        window.location.href = 'Viure2.html';
+        window.location.href = 'Viure.html';
       }, 600);
     });
   }
