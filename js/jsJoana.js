@@ -117,8 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
 	const cardContainers = document.querySelectorAll('.card-container');
 	const stickyHeader = document.querySelector('.sticky-header h1');
 
+
 	let isGapAnimationCompleted = false;
 	let isFlipAnimationCompleted = false;
+
+
 
 	function initAnimations() {
 		ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -246,7 +249,9 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 
 				},
+				
 			}); 
+
 		});
 	}
 
@@ -261,3 +266,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
+
+
+// --- IGNORE ---
+	//Camins Scroll Animation (a veure que tal)
+	const caminsTitle = document.querySelector('.camins-title h1');
+	//Tanco els camins
+	//camins
+	let caminsTrigger;
+	//tanco camins
+
+			gsap.set('.camins-title h1', {
+				y: 40,
+				opacity: 0,
+			});
+			//camins scroll trigger
+			ScrollTrigger.create({
+				trigger: '.camins-wrapper',
+				start: 'top top',
+				end: '+-400%',
+				pin: true,
+				pinSpacing: true,
+
+				onUpdate: (self) => {
+					const progress = self.progress;
+
+					if (progress < 0.25) {
+						gsap.to('.camins-title h1', {
+							y: 40,
+							opacity: 0,
+							overwrite: true,
+						});
+					}
+					if (progress >= 0.25 && progress < 0.5) {
+						const p = (progress - 0.25) / 0.25;
+						gsap.to('.camins-title h1', {
+							y: 40 - (40 * p),
+							opacity: p,
+							overwrite: true,
+						});
+					}
+				}
+			});
+			//fins aquí esborrem si no funciona

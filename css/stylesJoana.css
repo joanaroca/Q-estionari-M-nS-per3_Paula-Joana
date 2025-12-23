@@ -326,6 +326,17 @@ body.poder{
     transform: none;
   }       
 }
+
+/*CAMINS OKEI???*/
+
+.camins-title{
+  position: relative;
+  margin-top: 100vh;
+}
+.camins-title h1{
+  transform: translateY(40px);
+  opacity: 1;
+}
 .camins ul{
   display: flex;
   justify-content: center;
@@ -351,7 +362,37 @@ body.poder{
   text-align: center;
   margin-top: 1rem;
 }
+.camins-wrapper{
+  height: 400vh;
+}
 
+body.camins-contenidor{
+  font-family: 'hoefler text';
+  color: var(--Crema);
+}
+.camins-contenidor img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.camins-contenidor h1{
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1;   
+}
+.camins-contenidor p{
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.camins-contenidor section{
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 2rem;
+  background-color: var(--TaronjaClar);
+  color: var(--Crema);
+}
 
 
 

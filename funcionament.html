@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<style>
+			.contenidor
+			{
+				display: flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				width:100%;
+			}
+			.option{
+			  display: none;
+			}
+			button{
+				width:50%;
+			}
+			.boto{
+			  display: inline-block;
+			  padding: 10px 20px;
+			  border: 2px solid #007bff;
+			  border-radius: 6px;
+			  cursor: pointer;
+			  margin: 5px;
+			  width:45%;
+			}
+			img{
+				width:50%;
+			}
+		</style>
+	</head>
+	<body>
+		<form id="formulari">
+		   <section id="p1">
+			<div class="contenidor">
+				<img src="https://genweb.upc.edu/es/shared/imatges-lliures/fox.jpg/@@images/image-400-4be271a572e1d4898ee259ac3931de14.jpeg">
+				<label class="boto">
+				    <input type="radio" name="opcion" value="A" onclick="anarSec('p2')" class="option"> Opción A1
+				</label>
+			</div>
+			<div class="contenidor">
+				<img src="https://genweb.upc.edu/es/shared/imatges-lliures/fox.jpg/@@images/image-400-4be271a572e1d4898ee259ac3931de14.jpeg">
+				<label class="boto">
+				    <input type="radio" name="opcion" value="B" onclick="anarSec('p2')" class="option"> Opción B1
+				</label>
+			</div>
+			</section>
+			<section id="p2">
+			<div class="contenidor">
+				<img src="https://www.totsantcugat.cat/uploads/s1/25/87/19/75/250.jpeg">
+				<label class="boto">
+				    <input type="radio" name="opcion2" class="option" value="A" onclick="anarSec('p3')"> Opción A2
+				</label>
+			</div>
+			<div class="contenidor">
+				<img src="https://www.totsantcugat.cat/uploads/s1/25/87/19/75/250.jpeg">
+				<label class="boto">
+				    <input type="radio" name="opcion2" class="option" value="B"> Opción B2
+				</label>
+			</div>
+			</section>
+			<div class="contenidor">
+				<button type="button" onclick="verSel()">Resultat</button>
+			
+			</div>
+  		</form>
+		<script>
+			function verSel() {
+			  const selec1 = document.querySelector('input[name="opcion"]:checked');
+			  const selec2 = document.querySelector('input[name="opcion2"]:checked');
+			  if (selec1 || selec2) {
+			    alert("Opció escollida 1: " + selec1.value);
+			    alert("Opció escollida 2: " + selec2.value);
+		
+			  } else {
+			    alert("No has triat res");
+			  }
+		    }
+			function anarSec(id) {
+					document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+			}	
+		</script>
+	</body>
+</html>
