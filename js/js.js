@@ -44,5 +44,59 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 });
+// FINESTRA DE CANVI DE PAISATGES AMB PERSIANA
+let currentIndex = 0;
+let isAnimating = false;
 
+const landscapes = document.querySelectorAll('.landscape');
+const buttons = document.querySelectorAll('.options button');
+const shutter = document.querySelector('.shutter');
+
+function changeLandscape(newIndex) {
+  if (newIndex === currentIndex || isAnimating) return;
+  if (newIndex < 0 || newIndex >= landscapes.length) return;
+
+  isAnimating = true;
+
+  // BAIXA PERSIANA
+  shutter.classList.add('down');
+
+  setTimeout(() => {
+    landscapes[currentIndex].classList.remove('active');
+    buttons[currentIndex].classList.remove('active');
+
+    currentIndex = newIndex;
+
+    landscapes[currentIndex].classList.add('active');
+    buttons[currentIndex].classList.add('active');
+
+    // PUJA PERSIANA
+    shutter.classList.remove('down');
+    shutter.classList.add('up');
+
+    setTimeout(() => {
+      shutter.classList.remove('up');
+      isAnimating = false;
+    }, 600);
+
+  }, 600);
+}
+
+// SCROLL
+window.addEventListener('wheel', (e) => {
+  if (isAnimating) return;
+
+  if (e.deltaY > 0) {
+    changeLandscape(currentIndex + 1);
+  } else {
+    changeLandscape(currentIndex - 1);
+  }
+});
+
+// BOTONS
+buttons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    changeLandscape(parseInt(btn.dataset.index));
+  });
+});
 

@@ -69,9 +69,8 @@
 }
 
 body {
-  overflow: auto; /* allow page scrolling for the Problema page */
+  overflow: hidden;
   font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* VIEWPORT */
@@ -171,226 +170,188 @@ body {
   color: white;
 }
 
-/*PROBLEMES (molts)*/
-.header{
-    position: fixed;
-    z-index: 100;
-}
-.contenidor-problema{
-  position: relative;
-  width: 100%;
-  height: 70%;
-  background-image: url('../img/40-fusta.jpg');
-  background-position: top center;
-  display: block;
-  overflow: visible;
-}
-
-/* each .solucio is one viewport tall and stacked vertically inside the big container */
-.contenidor-problema .solucio{
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-sizing: border-box;
-}
-
-/* center the heading text and keep it above images */
-.contenidor-problema .solucio .prob{
-  z-index: 5;
-  text-align: center;
-}
-
-/* images sit around the centered text; we'll place them with absolute positions
-   and scale responsively */
-.contenidor-problema .solucio img{
-  position: absolute;
-  max-width: 28vw;
-  height: auto;
-  z-index: 4;
-  opacity: 0.95;
-}
-
-/* simple placements: 1st image left center, 2nd right center, 3rd bottom-left (if present) */
-.contenidor-problema .solucio img:nth-of-type(1){ left: 6%; top: 50%; transform: translateY(-50%); }
-.contenidor-problema .solucio img:nth-of-type(2){ right: 6%; top: 50%; transform: translateY(-50%); }
-.contenidor-problema .solucio img:nth-of-type(3){ left: 22%; bottom: 8%; transform: translateY(0%); }
-
-/* make text readable on top of wood background */
-.contenidor-problema .solucio .prob{
-  color: var(--Crema);
-  font-size: clamp(28px, 4vw, 48px);
-  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  padding: 12px 18px;
-}
-
-.contenidor-problema img{
-  height: auto;
-  max-height: 40vh;
-}
-.prob {
-    font-family: 'hoefler text';
-    font-weight: lighter;
-    color: var(--Crema);
-    font-size: 40px;
-}
 
 /*PODERS MÀGICS*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
 }
 body.poder{
-    font-family: 'hoefler text';
-    color: var(--Crema);
+  font-family: 'hoefler text';
+  color: var(--Crema);
 }
 .poder img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .poder h1{
-    font-size: 4rem;
-    font-weight: 500;
-    line-height: 1;   
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1;   
 }
 .poder p{
-    font-size: 2rem;
-    font-weight: 500;
-    line-height: 1;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
 }
 .poder section{
-    position: relative;
-    width: 100%;
-    height: 100svh;
-    padding: 2rem;
-    background-color: var(--TurquesaFosc);
-    color: var(--Crema);
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  padding: 2rem;
+  background-color: var(--TurquesaFosc);
+  color: var(--Crema);
 }
-.intro, .outro{
-    text-align: center;
-    align-items: center;
+.intro, .camins-title{
+  text-align: center;
+  align-items: center;
 }
-.intro h1, .outro h1{
-    width: 30%;
-    margin: 0 auto;
+.intro h1, .camins-title h1{
+  width: 30%;
+  margin: 0 auto;
 }
 .sticky{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sticky-header{
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sticky-header h1{
-    position: relative;
-    text-align: center;
-    will-change: transform, opacity;
-    transform: translateY(40px);
-    opacity: 0;
+  position: relative;
+  text-align: center;
+  will-change: transform, opacity;
+  transform: translateY(40px);
+  opacity: 0;
 }
 .card-container{
-    position: relative;
-    width: 75%;
-    display: flex;
-    perspective: 1000px;
-    transform: translateY(40px);
-    will-change: width;
+  position: relative;
+  width: 75%;
+  display: flex;
+  perspective: 1000px;
+  transform: translateY(40px);
+  will-change: width;
 }
 .card{
-    position: relative;
-    flex: 1;
-    aspect-ratio: 5/7;
-    transform-style: preserve-3d;
-    transform-origin: top;
+  position: relative;
+  flex: 1;
+  aspect-ratio: 5/7;
+  transform-style: preserve-3d;
+  transform-origin: top;
 }
 
 #card-1{
-    border-radius: 20px 0 0 20px;
+  border-radius: 20px 0 0 20px;
 }
 #card-4{
-    border-radius: 0 20px 20px 0;
+  border-radius: 0 20px 20px 0;
 }
 .card-front, .card-back{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: inherit;
-    overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: inherit;
+  overflow: hidden;
 }
 .card-back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transform: rotateY(180deg);
-    padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotateY(180deg);
+  padding: 2rem;
 }
 .card-back span{
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    opacity: 0.4;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  opacity: 0.4;
 }
 
 #card-1 .card-back{
-    background-color: var(--TaronjaMitja);
+  background-color: var(--TaronjaMitja);
 }
 #card-2 .card-back{
-    background-color: var(--TurquesaMitja);
+  background-color: var(--TurquesaMitja);
 }
 #card-3 .card-back{
-    background-color: var(--Vermell);
+  background-color: var(--Vermell);
 }
 #card-4 .card-back{
-    background-color: var(--TaronjaClar);
+  background-color: var(--TaronjaClar);
 }
 
 @media (max-width: 1000px){
-    .poder h1{
-        font-size: 3rem;
-    }
-    .intro h1, .outro h1{
-        width: 100%;
-    }
-    .sticky{
-        height: max-content;
-        padding: 4rem 2rem;
-        flex-direction: column;
-    }
-    .sticky-header{
-        position: relative;
-        top: 0;
-        left: 0;
-        transform: none;
-        margin-bottom: 4rem;
-    }
-    .sticky-header h1{
-        opacity: 1;
-    }
-    .card-container{
-        width: 100%;
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .card{
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-        border-radius: 20px !important;
-    }
-    #card-1, #card-2, #card-3, #card-4{
-        transform: none;
-    }       
+  .poder h1{
+    font-size: 3rem;
+  }
+  .intro h1, .outro h1{
+    width: 100%;
+  }
+  .sticky{
+    height: max-content;
+    padding: 4rem 2rem;
+    flex-direction: column;
+  }
+  .sticky-header{
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 4rem;
+  }
+  .sticky-header h1{
+    opacity: 1;
+  }
+  .card-container{
+    width: 100%;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .card{
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 20px !important;
+  }
+  #card-1, #card-2, #card-3, #card-4{
+    transform: none;
+  }       
+}
+.camins ul{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  list-style: none;
+  gap: 30px;
+
+}
+.camins ul li{
+  width: 20%;
+  height: auto;
+}
+.camins ul li img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+.camins ul li p{
+  text-align: center;
+  margin-top: 1rem;
 }
 
- 
+
+
+

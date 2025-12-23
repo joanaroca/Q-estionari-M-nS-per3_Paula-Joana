@@ -104,8 +104,6 @@ buttons.forEach(btn => {
 });
 
 //PODERS MÀGICS OLE OLE
-
-
 document.addEventListener('DOMContentLoaded', () => {
 	gsap.registerPlugin(ScrollTrigger);
 
