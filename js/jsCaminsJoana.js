@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	gsap.ticker.lagSmoothing(0);
 
-	const cardContainers = document.querySelectorAll('.card-container');
-	const stickyHeader = document.querySelector('.sticky-header h1');
+	const caminsOpcions = document.querySelectorAll('.camins-opcions');
+	const caminsTitle = document.querySelector('.camins-title h1');
 
 
 	let isGapAnimationCompleted = false;
@@ -32,120 +32,92 @@ document.addEventListener('DOMContentLoaded', () => {
 		
 		mm.add('(min-width: 1000px)', () => {
 			ScrollTrigger.create({
-				trigger: '.sticky',
+				trigger: '.camins-title h1',
 				start: 'top top',
 				end: `+=${window.innerHeight * 4}px`,
 				pin: true,
 				pinSpacing: true,
 				onUpdate: (self) => {
 					const progress = self.progress;
-					
+					//Animació de la posició
 					if (progress >= 0.1 && progress < 0.25) {
 						const headerProgress = gsap.utils.mapRange(
 							0.1, 0.25, 0, 1, progress
 						);
-						const yValue = gsap.utils.mapRange(0, 1, 40, 0, headerProgress);
-						const opacityValue = gsap.utils.mapRange(0, 1, 0, 1, headerProgress);
+						const yValue = gsap.utils.mapRange(0, 1, 100, 0, headerProgress);
 						
-						gsap.to(stickyHeader, {
+						gsap.to(caminsTitle, {
 							y: yValue,
-							opacity: opacityValue,
 						});
 					} else if (progress < 0.1) {
-						gsap.to(stickyHeader, {
-							y: 40,
-							opacity: 0,
+						gsap.to(caminsTitle, {
+							y: 100,
 						});
 					} else if (progress >= 0.25) {
-						gsap.to(stickyHeader, {
+						gsap.to(caminsTitle, {
 							y: 0,
+						});
+					}
+					//aquí la opacitat
+					if (progress >= 0.01 && progress < 0.1) {
+						const headerProgress = gsap.utils.mapRange(
+							0.01, 0.1, 0, 1, progress
+						);
+						const opacityValue = gsap.utils.mapRange(0, 1, 0, 1, headerProgress);
+						
+						gsap.to(caminsTitle, {
+							opacity: opacityValue,
+						});
+					} else if (progress < 0.01) {
+						gsap.to(caminsTitle, {
+							opacity: 0,
+						});
+					} else if (progress >= 0.1) {
+						gsap.to(caminsTitle, {
 							opacity: 1,
 						});
 					}
+					
 
-					if (progress <= 0.25) {
-						const widthPercentage = gsap.utils.mapRange(
-							0, 0.25, 75, 60, progress
-						);
-						gsap.set(cardContainers, { width: `${widthPercentage}%` });
-					} else {
-						gsap.set(cardContainers, { width: '60%' });
-					}
-					if (progress >= 0.35 && !isGapAnimationCompleted) {
-						gsap.to(cardContainers, {
-							gap: '20px',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
-						gsap.to(['#card-1' ,'#card-2', '#card-3', '#card-4'], {
-							borderRadius: '20px',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
+				
+					
 
 						isGapAnimationCompleted = true;
 
-					}else if (progress < 0.35 && isGapAnimationCompleted) {
-						gsap.to(cardContainers, {
-							gap: '0px',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
-						gsap.to('#card-1', {
-							borderRadius: '20px 0 0 20px',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
-						gsap.to(['#card-2', '#card-3'], {
-							borderRadius: '0px',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
-						gsap.to('#card-4', {
-							borderRadius: '0 20px 20px 0',
-							duration: 0.5,
-							ease: 'power3.out',
-						});
-						isGapAnimationCompleted = false;
-					}
-
-					if (progress >= 0.7 && !isFlipAnimationCompleted) {
-						gsap.to('.card',{
-							rotationY: 180,
-							duration: 0.75,
-							ease: 'power3.inOut',
-							stagger: 0.1
-						});
-
-						gsap.to(['#card-1', '#card-4'], {
-							y: 30,
-							rotationZ: (i) => [-15, 15][i],
-							duration: 0.75,
-							ease: 'power3.inOut',
-						});
+					
 						isFlipAnimationCompleted = true;
 
-					}else if (progress < 0.7 && isFlipAnimationCompleted) {
-						gsap.to('.card',{
-							rotationY: 0,
-							duration: 0.5,
-							ease: 'power3.inOut',
-							stagger: -0.1
-						});
-
-						gsap.to(['#card-1', '#card-4'], {
-							y: 0,
-							rotationZ: 0,
-							duration: 0.5,
-							ease: 'power3.inOut',
-						});
-
-						isFlipAnimationCompleted = false;
-					}
+									
 
 				},
 				
 			}); 
+			// STICKY / PIN DE LES IMATGES
+			const caminsWrappers = gsap.utils.toArray('.camins-img-wrapper');
+
+			caminsWrappers.forEach((wrapper) => {
+				const img = wrapper.querySelector('.camins-img');
+
+				ScrollTrigger.create({
+					trigger: wrapper,
+					start: 'bottom 85%',
+					end: '+=1000',
+					pin: true,
+					pinSpacing: false,
+					scrub: 0.9, //
+				});
+				gsap.to(img, {
+					y: -10,
+					scrollTrigger: {
+						trigger: wrapper,
+						start: 'bottom 85%',
+						end: '+=1000',
+						scrub: true
+					}
+				});
+
+			});
+
 
 		});
 	}
