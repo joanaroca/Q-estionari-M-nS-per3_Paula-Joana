@@ -100,3 +100,13 @@ buttons.forEach(btn => {
   });
 });
 
+// clicking a landscape should navigate to pregunta4.html
+if (landscapes && landscapes.length) {
+	landscapes.forEach(section => {
+		section.addEventListener('click', function () {
+			// navigate to the next question page
+			window.location.href = 'pregunta4.html';
+		});
+	});
+}
+

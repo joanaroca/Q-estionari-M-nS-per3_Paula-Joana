@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // fade out then navigate
       body.classList.add('page-fade-out');
       setTimeout(function () {
-        window.location.href = 'Viure.html';
+        window.location.href = 'pregunta3.html';
       }, 600);
     });
   }
