@@ -8,30 +8,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
+<body class="pregunta3">
     <header class="Quiz-Header">
         <ul>
             <li>
                 <a href="index.html">MónSúper3</a>
             </li>
             <li>
-                <h1 class="Quiz-Header-Pregunta">On vols viure?</h1>
-            </li>
-            <li>
                 3
             </li>
         </ul>
     </header>
-    <div class="viewport">
-        <div class="landscapes">
-        <section class="landscape active" data-index="0" style="background-image: url(img/3-bosc.jpg);"></section>
-        <section class="landscape" data-index="1" style="background-image: url('img/3-ciutat.jpg');"></section>
-        <section class="landscape" data-index="2" style="background-image: url('img/3-poble.jpg');"></section>
-        <section class="landscape" data-index="3" style="background-image: url('img/3-neu.jpg');"></section>
+    <div class="sticky0">
+        <div class="stickyy-header0">
+            <h1>On viuries?</h1>
         </div>
-        <img src="img/3-persiana.png" class="shutter" alt="Persiana">
-        <img src="img/3-finestra.png" class="window" alt="Finestra">
 
+        <div class="finestra-container">
+            <div class="finestra">
+                <img src="img/3-finestra.png" alt="finestra">
+            </div>
+
+            <div class="persiana">
+                <img src="img/3-persiana.png" alt="persiana">
+            </div>
+
+            <div class="paissatges-container">
+                <div class="paissatge resposta" data-punts="C">
+                    <img src="img/3-bosc.jpg" alt="bosc">
+                </div>
+                <div class="paissatge resposta" data-punts="D">
+                    <img src="img/3-neu.jpg" id="neu">
+                </div>
+                <div class="paissatge resposta" data-punts="E">
+                    <img src="img/3-poble.jpg" id="poble">
+                </div>
+                <div class="paissatge resposta" data-punts="A,B">
+                    <img src="img/3-ciutat.jpg" id="ciutat">
+                </div>
+            </div>
     </div>
 
   <nav class="options">
@@ -41,8 +56,8 @@
     <button data-index="3">Neu</button>
   </nav>
 
-  <script src="js/js.js"></script>
-  <script src="comu.js"></script>
+  <script src="js/jsJoana.js"></script>
+  <script src="js/comuna.js"></script>
 
 </body>
 </html>

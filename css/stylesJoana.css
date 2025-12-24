@@ -16,159 +16,6 @@
     margin: 0;
     padding: 0;
 }
-/*VIURE*/
-/*ESTILS HEADER*/
-.Quiz-Header{
-    background-color: var(--TaronjaMitja);
-    padding: 25px;
-    margin: auto;
-    font-family: 'Hoefler Text';
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--Crema);
-    position: relative; /* enable absolute positioning for inner title */
-    min-height: 68px; /* ensure space for large h1 */
-}
-.Quiz-Header ul{
-    justify-content: space-between;
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.Quiz-Header li{
-    padding: 4px;
-}
-.Quiz-Header a{
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 300;
-    color: var(--Crema);
-    height: 50px;
-}
-
-.Quiz-Header-Pregunta{
-    font-family: 'Hoefler Text';
-    color: var(--Crema);
-    font-weight: 700;
-    font-size: 48px;
-    margin: 0;
-    position: absolute; /* keep it centered regardless of other li widths */
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    max-width: 80%;
-    box-sizing: border-box;
-}
-
-/*Estils finestra*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  overflow: hidden;
-  font-family: sans-serif;
-}
-
-/* VIEWPORT */
-.viewport {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* PAISATGES */
-.landscape {
-  position: absolute;
-  inset: 0;
-}
-
-.landscape {
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.landscape.active {
-  opacity: 1;
-}
-
-/* PERSIANA (shutter) - start hidden above viewport and animate with keyframes for smoothness + bounce */
-.shutter {
-    position: absolute;
-    bottom: 0; /* align with top so the image won't be clipped at bottom */
-    left: 0;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    z-index: 20; /* above window */
-    transform: translateY(90%); /* start hidden above */
-    will-change: transform;
-}
-
-/* Closing animation (shutter goes down and slightly overshoots for bounce) */
-.shutter.closing {
-    animation: shutterClose 700ms cubic-bezier(.22,.8,.28,1) forwards;
-}
-
-/* Opening animation (shutter goes up with slight bounce) */
-.shutter.opening {
-    animation: shutterOpen 700ms cubic-bezier(.22,.8,.28,1) forwards;
-}
-
-@keyframes shutterClose {
-    0% { transform: translateY(-100%) translateX(0); }
-    60% { transform: translateY(8%) translateX(0); } /* overshoot slightly */
-    80% { transform: translateY(-3%) translateX(0); }
-    100% { transform: translateY(0%) translateX(0); }
-}
-
-@keyframes shutterOpen {
-    0% { transform: translateY(0%) translateX(0%); }
-    60% { transform: translateY(-110%) translateX(0%); }
-    80% { transform: translateY(-95%) translateX(0%); }
-    100% { transform: translateY(-100%) translateX(0%); }
-}
-
-/* FINESTRA */
-.window {
-    position: absolute;
-    inset: 0;
-    width: 90%;
-    height: 90%; /* ensure it covers the same area as landscapes */
-    object-fit: cover;
-    z-index: 30; /* below shutter */
-    pointer-events: none;
-}
-
-/* OPCIONS */
-.options {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  z-index: 30;
-}
-
-.options button {
-  padding: 10px 16px;
-  border: none;
-  background: rgba(255,255,255,0.7);
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.options button.active {
-  background: black;
-  color: white;
-}
 
 
 /*PODERS MÀGICS*/
@@ -180,6 +27,8 @@ body {
 body.poder{
   font-family: 'hoefler text';
   color: var(--Crema);
+  /* prevent the default browser scrollbar on the 'poder' pages */
+  overflow: hidden;
 }
 .poder img{
   width: 100%;
@@ -337,6 +186,17 @@ body.poder{
 }
 
 /*CAMINS OKEI???*/
+.camins .Quiz-Header, .poder .Quiz-Header{
+  /* keep header visible at the top for the entire scroll — use fixed instead of sticky
+     because sticky only remains until its containing block ends. Fixed pins it to the
+     viewport so it won't disappear near the parent bottom. */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
 .camins{
   font-family: 'hoefler text';
   color: var(--Crema);
@@ -389,7 +249,7 @@ body.poder{
   --total-w: calc((var(--item-w) * var(--items-count)) + (var(--gap) * (var(--items-count) - 1)));
   --start: calc(50% - (var(--total-w) / 2));
   /* vertical spacing: how far each item is shifted relative to the next */
-  --v-gap: 200px;
+  --v-gap: 150px;
   /* base top for the 4th (lowest) item — change to move the whole column up/down */
   --base-top: 0px;
 }
@@ -470,4 +330,230 @@ body.poder{
 
 .pin-spacer > * {
   pointer-events: auto;
+}
+
+/*ON vols VIURE¿??*/
+
+
+/*VIURE*/
+/*ESTILS HEADER*/
+body.pregunta3{
+  background-color: var(--TaronjaFosc);
+  
+}
+.sticky0{
+  /* full-viewport width bar that stays within the viewport and centers its content */
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* allow children (persiana) to animate outside while being clipped by container */
+  margin: 0 auto;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+.sticky-header0{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* PREGUNTA 3 - finestra layout ------------------------------------------------- */
+.finestra-container{
+  /* center the window on the screen */
+  position: relative;
+  width: 832px;           /* fixed design width for the window frame */
+  height: 541px;         /* same height so the frame is square */
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;      /* clip children so persiana only shows inside the frame */
+  background: transparent;
+  background-color: #001219;
+}
+
+.finestra{
+  position: absolute;
+  z-index: 40; /* on top of everything */
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.finestra img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* show the whole frame image */
+  display: block;
+}
+
+.persiana{
+  position: absolute;
+  z-index: 20; /* below finestra but above landscapes */
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  /* expose a CSS variable to control vertical movement: --persiana-y */
+  transform: translateY(var(--persiana-y, 0));
+}
+.persiana img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* persiana defines the visible area */
+  display: block;
+  opacity: 0;
+}
+
+.paissatges-container{
+  position: relative;
+  z-index: 10; /* below persiana and finestra */
+  inset: 0;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+.paissatge{
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+.paissatge img{
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* show entire landscape inside its frame */
+  border-radius: 8px;
+  display: block;
+}
+
+/* make sure the frame & inner images scale on very small screens */
+@media (max-width: 420px){
+  .finestra-container{ width: 280px; height: 280px; }
+  .paissatge{ max-width: 120px; }
+}
+.Quiz-Header{
+    padding: 25px;
+    margin: auto;
+    font-family: 'Hoefler Text';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--Crema);
+    position: relative; /* enable absolute positioning for inner title */
+    min-height: 68px; /* ensure space for large h1 */
+}
+.Quiz-Header ul{
+    justify-content: space-between;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.Quiz-Header li{
+    padding: 4px;
+}
+.Quiz-Header a{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--Crema);
+    height: 50px;
+}
+/* removed an old tiny .finestra-container rule to avoid conflicts with the
+   pregunta-3 specific `.finestra-container` defined above */
+
+
+/* VIEWPORT */
+.viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* PAISATGES */
+.landscape {
+  position: absolute;
+  inset: 0;
+}
+
+.landscape {
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.landscape.active {
+  opacity: 1;
+}
+
+/* PERSIANA (shutter) - start hidden above viewport and animate with keyframes for smoothness + bounce */
+.shutter {
+    position: absolute;
+    bottom: 0; /* align with top so the image won't be clipped at bottom */
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    z-index: 20; /* above window */
+    transform: translateY(90%); /* start hidden above */
+    will-change: transform;
+}
+
+
+@keyframes shutterClose {
+    0% { transform: translateY(-100%) translateX(0); }
+    60% { transform: translateY(8%) translateX(0); } /* overshoot slightly */
+    80% { transform: translateY(-3%) translateX(0); }
+    100% { transform: translateY(0%) translateX(0); }
+}
+
+@keyframes shutterOpen {
+    0% { transform: translateY(0%) translateX(0%); }
+    60% { transform: translateY(-110%) translateX(0%); }
+    80% { transform: translateY(-95%) translateX(0%); }
+    100% { transform: translateY(-100%) translateX(0%); }
+}
+
+/* FINESTRA */
+.window {
+    position: absolute;
+    inset: 0;
+    width: 90%;
+    height: 90%; /* ensure it covers the same area as landscapes */
+    object-fit: cover;
+    z-index: 30; /* below shutter */
+    pointer-events: none;
+}
+
+/* OPCIONS */
+.options {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 30;
+}
+
+.options button {
+  padding: 10px 16px;
+  border: none;
+  background: rgba(255,255,255,0.7);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.options button.active {
+  background: black;
+  color: white;
 }
