@@ -36,24 +36,51 @@
     </main>
 
     <script>
-        // insert year
-        document.getElementById('any-final').textContent = new Date().getFullYear();
+        // insert year if there is a placeholder
+        var anyEl = document.getElementById('any-final');
+        if (anyEl) anyEl.textContent = new Date().getFullYear();
 
-        // after 8 seconds show the ship flying from right to center + light
+        // after 8 seconds show the ship flying from right to center + light (with image fallback)
         window.addEventListener('load', function () {
             setTimeout(function () {
                 var nau = document.getElementById('finalNau');
-                var light = document.getElementById('nauLight');
+                var lightDiv = document.getElementById('nauLight');
                 var hero = document.getElementById('finalHero');
+
+                // show and animate the ship
                 if (nau) {
                     nau.classList.add('visible');
                     nau.setAttribute('aria-hidden','false');
                 }
-                if (light) {
-                    light.classList.add('visible');
-                    light.setAttribute('aria-hidden','false');
-                }
-                // optionally slightly zoom out the background when ship appears
+
+                // try to load a real light image (img/llum.png). If it exists, inject it and show it.
+                var lightImg = new Image();
+                lightImg.src = 'img/llum.png';
+                lightImg.onload = function () {
+                    lightImg.id = 'nauLightImg';
+                    lightImg.className = 'nau-light-img';
+                    lightImg.alt = 'llum de la nau';
+                    // insert it into the same container as the ship so z-index works
+                    if (nau && nau.parentNode) {
+                        nau.parentNode.insertBefore(lightImg, nau.nextSibling);
+                    } else if (hero) {
+                        hero.appendChild(lightImg);
+                    }
+                    // small timeout to allow layout then reveal (sync with ship)
+                    setTimeout(function () {
+                        lightImg.classList.add('visible');
+                        lightImg.setAttribute('aria-hidden','false');
+                    }, 80);
+                };
+                lightImg.onerror = function () {
+                    // fallback to the existing blurred radial glow div
+                    if (lightDiv) {
+                        lightDiv.classList.add('visible');
+                        lightDiv.setAttribute('aria-hidden','false');
+                    }
+                };
+
+                // slightly zoom out the background when ship appears
                 if (hero) hero.style.backgroundSize = '110%';
             }, 8000);
         });
