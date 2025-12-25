@@ -339,25 +339,46 @@ body.poder{
 /*ESTILS HEADER*/
 body.pregunta3{
   background-color: var(--TaronjaFosc);
+  color: var(--Crema);
   
 }
 .sticky0{
   /* full-viewport width bar that stays within the viewport and centers its content */
   width: 100vw;
+  margin: auto;
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
   overflow: visible; /* allow children (persiana) to animate outside while being clipped by container */
-  margin: 0 auto;
   padding: 12px 0;
   box-sizing: border-box;
 }
+/* sticky corregit*/
+.sticky0{
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
 .sticky-header0{
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.sticky-header0 h1{
+  position: relative;
+  text-align: center;
+  will-change: transform, opacity;
+  transform: translateY(40px);
+  opacity: 0;
+  font-size: 4rem;
+  font-weight: 500;
 }
 
 
@@ -366,23 +387,37 @@ body.pregunta3{
   /* center the window on the screen */
   position: relative;
   width: 832px;           /* fixed design width for the window frame */
-  height: 541px;         /* same height so the frame is square */
+  height: 496.6px;         /* same height so the frame is square */
   margin: 0;
   align-items: center;
   justify-content: center;
   overflow: hidden;      /* clip children so persiana only shows inside the frame */
   background: transparent;
-  background-color: #001219;
+  left: 22%;
+  margin-top: 4%;
 }
+/*finestra corregida*/
+.finestra-container{
+  position: relative;
+  width: 75%;
+  aspect-ratio: 832 / 496.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  will-change: width;
+}
+
 
 .finestra{
   position: absolute;
   z-index: 40; /* on top of everything */
   inset: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
+  will-change: transform;
+
 }
 .finestra img{
   width: 100%;
@@ -403,10 +438,10 @@ body.pregunta3{
 }
 .persiana img{
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover; /* persiana defines the visible area */
   display: block;
-  opacity: 0;
+  opacity: 1;
 }
 
 .paissatges-container{
@@ -418,6 +453,7 @@ body.pregunta3{
   align-items: center;
   padding: 12px;
   box-sizing: border-box;
+
 }
 .paissatge{
   position: absolute;
@@ -428,7 +464,7 @@ body.pregunta3{
 }
 .paissatge img{
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover; /* show entire landscape inside its frame */
   border-radius: 8px;
   display: block;
@@ -439,6 +475,29 @@ body.pregunta3{
   .finestra-container{ width: 280px; height: 280px; }
   .paissatge{ max-width: 120px; }
 }
+
+/*afegim un parell de cosetes*/
+.paissatges-container,
+.paissatge,
+.persiana,
+.finestra {
+  width: 100%;
+  height: 100%;
+}
+.finestra,
+.persiana,
+.paissatges-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+/**/
 .Quiz-Header{
     padding: 25px;
     margin: auto;
@@ -473,8 +532,6 @@ body.pregunta3{
 /* VIEWPORT */
 .viewport {
   position: relative;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
 }
 

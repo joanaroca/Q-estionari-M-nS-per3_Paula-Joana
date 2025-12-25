@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>On vols viure?</title>
-    <link rel="stylesheet" href="css/stylesJoana.css">
+    <title>Quin poder tindries?</title>
+    <link rel="stylesheet" href="css/stylesPregunta3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
 </head>
-<body class="pregunta3">
+<body class="poder">
     <header class="Quiz-Header">
         <ul>
             <li>
@@ -19,45 +20,50 @@
             </li>
         </ul>
     </header>
-    <div class="sticky0">
-        <div class="stickyy-header0">
-            <h1>On viuries?</h1>
+    <section class="sticky">
+        <div class="sticky-header">
+            <h1>On t'agradaria viure?</h1>
         </div>
 
-        <div class="finestra-container">
-            <div class="finestra">
-                <img src="img/3-finestra.png" alt="finestra">
+        <div class="card-container">
+            <div class="card" id="card-1">
+                <div class="card-front">
+                    <div class="finestra-container">
+                        <div class="paissatges-container">
+                            <div class="paissatge resposta" data-punts="C">
+                                <img src="img/3-bosc.jpg" alt="bosc">
+                            </div>
+                            <div class="paissatge resposta" data-punts="D">
+                                <img src="img/3-neu.jpg" id="neu">
+                            </div>
+                            <div class="paissatge resposta" data-punts="E">
+                                <img src="img/3-poble.jpg" id="poble">
+                            </div>
+                            <div class="paissatge resposta" data-punts="A,B">
+                                <img src="img/3-ciutat.jpg" id="ciutat">
+                            </div>
+                        </div>
+                        <div class="persiana">
+                            <img src="img/3-persiana.png" alt="persiana">
+                        </div>
+                        <div class="finestra">
+                            <img src="img/3-finestra.png" alt="finestra">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-back">
+                    <span>( 01 )</span>
+                    <p class="resposta" data-punts="A">Llegir la ment</p>
+                </div>
             </div>
-
-            <div class="persiana">
-                <img src="img/3-persiana.png" alt="persiana">
-            </div>
-
-            <div class="paissatges-container">
-                <div class="paissatge resposta" data-punts="C">
-                    <img src="img/3-bosc.jpg" alt="bosc">
-                </div>
-                <div class="paissatge resposta" data-punts="D">
-                    <img src="img/3-neu.jpg" id="neu">
-                </div>
-                <div class="paissatge resposta" data-punts="E">
-                    <img src="img/3-poble.jpg" id="poble">
-                </div>
-                <div class="paissatge resposta" data-punts="A,B">
-                    <img src="img/3-ciutat.jpg" id="ciutat">
-                </div>
-            </div>
-    </div>
-
-  <nav class="options">
-    <button class="active" data-index="0">Bosc</button>
-    <button data-index="1">Ciutat</button>
-    <button data-index="2">Poble</button>
-    <button data-index="3">Neu</button>
-  </nav>
-
-  <script src="js/jsJoana.js"></script>
-  <script src="js/comuna.js"></script>
-
+        </div>
+    </section>
+    <script type="module" src="js/pregunta3.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="js/comuna.js"></script>
+    
 </body>
 </html>

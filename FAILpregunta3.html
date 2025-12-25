@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On vols viure?</title>
+    <link rel="stylesheet" href="css/stylesJoana.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="pregunta3">
+    <header class="Quiz-Header">
+        <ul>
+            <li>
+                <a href="index.html">MónSúper3</a>
+            </li>
+            <li>
+                3
+            </li>
+        </ul>
+    </header>
+    <div class="sticky0">
+        <div class="sticky-header0">
+            <h1>On viuries?</h1>
+        </div>
+
+        <div class="finestra-container">
+            <div class="finestra">
+                <img src="img/3-finestra.png" alt="finestra">
+            </div>
+
+            <div class="persiana">
+                <img src="img/3-persiana.png" alt="persiana">
+            </div>
+
+            <div class="paissatges-container">
+                <div class="paissatge resposta" data-punts="C">
+                    <img src="img/3-bosc.jpg" alt="bosc">
+                </div>
+                <div class="paissatge resposta" data-punts="D">
+                    <img src="img/3-neu.jpg" id="neu">
+                </div>
+                <div class="paissatge resposta" data-punts="E">
+                    <img src="img/3-poble.jpg" id="poble">
+                </div>
+                <div class="paissatge resposta" data-punts="A,B">
+                    <img src="img/3-ciutat.jpg" id="ciutat">
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <nav class="options">
+    <button class="active" data-index="0">Bosc</button>
+    <button data-index="1">Ciutat</button>
+    <button data-index="2">Poble</button>
+    <button data-index="3">Neu</button>
+  </nav>
+
+    <script src="js/pregunta3.js"></script>
+    <script src="js/comuna.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+
+
+</body>
+</html>
