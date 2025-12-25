@@ -139,6 +139,7 @@ body.poder{
 }
 
 @media (max-width: 1000px){
+  
   .poder h1{
     font-size: 3rem;
   }

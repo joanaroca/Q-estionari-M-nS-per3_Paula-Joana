@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardContainer = document.querySelector('.card-container');
     const persiana = document.querySelector('.persiana');
     const paisatges = document.querySelectorAll('.paissatge');
-
+    const stickyP = document.querySelector('.sticky-header p');
+    const opcionsP = document.querySelector('.opcions');
   //VARIABLES DE CONTROL
 
 
@@ -38,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		mm.add('(max-width: 999px)', () => {
 			document.querySelectorAll(
-                '.card, .card-container, .card-header h1, .persiana, .paissatge'
+                '.card, .card-container, .card-header h1, .persiana,'
             )
 
 				.forEach((el) => (el.style=''));
 			return{};
 		});
 
-        mm.add('(min-width: 1000px)', () => {
+    mm.add('(min-width: 1000px)', () => {
 			ScrollTrigger.create({
 				trigger: '.sticky',
 				start: 'top top',
@@ -66,13 +67,28 @@ document.addEventListener('DOMContentLoaded', () => {
 							y: yValue,
 							opacity: opacityValue,
 						});
+						gsap.to(stickyP, {
+							y: yValue,
+							opacity: opacityValue,
+						});
+
 					} else if (progress < 0.1) {
 						gsap.to(stickyHeader, {
 							y: 40,
 							opacity: 0,
 						});
+						gsap.to(stickyP, {
+							y: 20,
+							opacity: 0,
+						});
+
+
 					} else if (progress >= 0.25) {
 						gsap.to(stickyHeader, {
+							y: 0,
+							opacity: 1,
+						});
+						gsap.to(stickyP, {
 							y: 0,
 							opacity: 1,
 						});
@@ -83,84 +99,102 @@ document.addEventListener('DOMContentLoaded', () => {
 							0, 0.1, 75, 60, progress
 						);
 						gsap.set(cardContainer, { width: `${widthPercentage}%` });
+
+            const opcionsOpacity = gsap.utils.mapRange(
+              0, 0.1, 0, 1, progress
+            );
+            gsap.set(opcionsP, { opacity: `${opcionsOpacity}`});
 					} else {
 						gsap.set(cardContainer, { width: '60%' });
+            gsap.set(opcionsP, {opacity: 1})
 					}
+          
+          
 
-                    /* =====================================================
-                        3️⃣ PERSIANA + PAISATGES
-                        8 pantalles = 8 trams
-                        cada tram = 0.09 de progress aprox
-                    ===================================================== */
+          
+          
 
-                    // TRAMS DE PUJAR / BAIXAR
-                    const trams = [
-                        [0.20, 0.25, 'espera', 0],
-                        [0.25, 0.30, 'puja'],
-                        [0.30, 0.38, 'pausa'],
-                        [0.38, 0.43, 'baixa'],
+          const trams = [
+              [0.10, 0.15, 'espera', 0],
+              [0.15, 0.22, 'puja'],
+              [0.22, 0.30, 'pausa'],
+              [0.30, 0.35, 'baixa'],
 
-                        [0.43, 0.45, 'espera', 1],
-                        [0.45, 0.50, 'puja'],
-                        [0.50, 0.56, 'pausa'],
-                        [0.56, 0.61, 'baixa'],
+              [0.35, 0.45, 'espera', 1],
+              [0.45, 0.50, 'puja'],
+              [0.50, 0.56, 'pausa'],
+              [0.56, 0.61, 'baixa'],
 
-                        [0.61, 0.63, 'espera', 2],                      
-                        [0.63, 0.68, 'puja'],
-                        [0.68, 0.74, 'pausa'],
-                        [0.74, 0.79, 'baixa'],
+              [0.61, 0.63, 'espera', 2],                      
+              [0.63, 0.68, 'puja'],
+              [0.68, 0.74, 'pausa'],
+              [0.74, 0.79, 'baixa'],
 
-                        [0.79, 0.81, 'espera', 3],
-                        [0.81, 0.86, 'puja'],
-                        [0.86, 0.92, 'pausa'],
-                        ];
+              [0.79, 0.81, 'espera', 3],
+              [0.81, 0.86, 'puja'],
+              [0.86, 0.92, 'pausa'],
+              ];
 
+          if (progress < trams[0][0]) {
+            paisatges.forEach((img, i) => {
+            gsap.set(img, { opacity: i === 0 ? 1 : 0 });
+            });
 
-                    for (let i = 0; i < trams.length; i++) {
-                        const tram = trams[i];
-                        const [start, end, tipus] = tram;
-
-                        if (progress >= start && progress < end) {
-                            const p = gsap.utils.mapRange(start, end, 0, 1, progress);
-
-                            // 🔽 CANVI D’IMATGE
-                            if (tipus === 'espera' && typeof tram[3] === 'number') {
-                            const index = tram[3];
-
-                            paisatges.forEach((img, i) => {
-                                gsap.to(img, {
-                                opacity: i === index ? 1 : 0,
-                                duration: 0.1,
-                                overwrite: true
-                                });
-                            });
-                            }
-
-                            let y;
-
-                            if (tipus === 'puja') {
-                            y = gsap.utils.mapRange(0, 1, 0, PUJADA, p);
-                            }
-
-                            if (tipus === 'baixa') {
-                            y = gsap.utils.mapRange(0, 1, PUJADA, 0, p);
-                            }
-
-                            if (tipus === 'pausa') {
-                            y = PUJADA;
-                            }
-                            if (tipus === 'espera') {
-                            y = 0;
-                            }
-                            
-
-                            gsap.set(persiana, { y });
-
-                            break; 
-                        }
-                        }
+            gsap.set(persiana, { y: 0 });
+          } else {    
 
 
+          for (let i = 0; i < trams.length; i++) {
+              const [start, end, tipus, index] = trams[i];
+
+            if (progress >= start && progress < end) {
+              const p = gsap.utils.mapRange(start, end, 0, 1, progress);
+                
+
+              // 🔽 CANVI D’IMATGE
+              if (tipus === 'espera' && typeof index === 'number') {
+                paisatges.forEach((img, i) => {
+                  gsap.to(img, {
+                    opacity: i === index ? 1 : 0,
+                    duration: 0.15,
+                    overwrite: true
+                  });
+                });
+              
+
+              paisatges.forEach((img, i) => {
+                  gsap.to(img, {
+                  opacity: i === index ? 1 : 0,
+                  duration: 0.1,
+                  overwrite: true
+                  });
+              });
+              }
+
+              let y;
+
+              if (tipus === 'puja') {
+              y = gsap.utils.mapRange(0, 1, 0, PUJADA, p);
+              }
+
+              if (tipus === 'baixa') {
+              y = gsap.utils.mapRange(0, 1, PUJADA, 0, p);
+              }
+
+              if (tipus === 'pausa') {
+              y = PUJADA;
+              }
+              if (tipus === 'espera') {
+              y = 0;
+              }
+              
+
+              gsap.set(persiana, { y });
+
+              break; 
+            }
+            }
+          }
                     
                 
     }

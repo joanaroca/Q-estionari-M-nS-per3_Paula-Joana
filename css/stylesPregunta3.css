@@ -69,12 +69,18 @@ body.poder{
   transform: translate(-50%, -50%);
 }
 
-.sticky-header h1{
+.sticky-header h1, .sticky-header p{
   position: relative;
   text-align: center;
   will-change: transform, opacity;
   transform: translateY(40px);
   opacity: 0;
+}
+.sticky-header p{
+  transform: translateY(30px);
+  font-size: 25px;
+  font-weight: 100;
+  padding-top: 20px;
 }
 .card-container{
   position: relative;
@@ -134,6 +140,9 @@ body.poder{
 }
 
 @media (max-width: 1000px){
+  .poder p{
+    font-size: small;
+  }
   .poder h1{
     font-size: 3rem;
   }
@@ -152,7 +161,7 @@ body.poder{
     transform: none;
     margin-bottom: 4rem;
   }
-  .sticky-header h1{
+  .sticky-header h1, .sticky-header p{
     opacity: 1;
   }
   .card-container{
@@ -255,4 +264,38 @@ body{
   inset: 0;
   z-index: 3;
 }
+.opcions{
+  display: flex;
+}
+.opcions p{
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+  z-index: 5;
+  position: relative;
+  pointer-events: auto;
+  width: 120px;
+  margin: 10px;
+}
+.opcions p:hover{
+  transform: scale(1.01);
+  background-color: var(--Crema);
+  color: var(--TaronjaFosc);
+  opacity: 0.8;
+}
 
+.opcions{
+  position: absolute;
+  margin: auto;
+  bottom:10%;
+  justify-content: center;
+  will-change: opacity;
+  opacity: 0;
+}
