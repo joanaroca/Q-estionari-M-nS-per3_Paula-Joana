@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>On vols viure?</title>
-    <link rel="stylesheet" href="css/stylesJoana.css">
+    <link rel="stylesheet" href="css/stylesPregunta3.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
@@ -24,62 +24,69 @@
             <h1>Com afrontes els problemes?</h1>
         </div>
         <div class="contenidor-problema">
-            <div class="solucio tecno">
-                <div class="objecte">
-                    <img src="img/41-auriculars.png" alt="Auriculars" id="auriculars">
+            <div class="frame tecno">
+                <div class="frame-inner">
+                    <div class="objecte auriculars">
+                        <img src="img/41-auriculars.png" alt="Auriculars">
+                    </div>
+                    <div class="objecte mobil">
+                        <img src="img/41-mobil.png" alt="Mòbil">
+                    </div>
+                    <div class="resposta" data-punts="E,B">
+                        <h1>Recorrent a la tecnologia</h1>
+                    </div> 
                 </div>
-                <div class="objecte">
-                    <img src="img/41-mobil.png" alt="Mòbil" id="mobil">
+            </div>
+            <div class="frame impuls">
+                <div class="frame-inner">
+                    <div class="objecte pet">
+                        <img src="img/42-pet.png" alt="Pet">
+                    </div>
+                    <div class="objecte rellotge">
+                        <img src="img/42-rellotge.png" alt="Rellotge">
+                    </div>
+                    <div class="resposta" data-punts="D">
+                        <h1>Actuant impulsivament</h1>
+                    </div> 
                 </div>
-                <div class="resposta" data-punts="E,B">
-                    <h1>Recorrent a la tecnologia</h1>
-                </div> 
+            </div>
+            <div class="frame fets">
+                <div class="frame-inner">
+                    <div class="objecte fulls">
+                        <img src="img/43-fulls.png" alt="fulls">
+                    </div>
+                    <div class="objecte bolis">
+                        <img src="img/43-bolis.png" alt="Bolis">
+                    </div>
+                    <div class="objecte lupa">
+                        <img src="img/43-lupa.png" alt="Lupa">
+                    </div>
+                    <div class="resposta" data-punts="A">
+                        <h1>Analitzant els fets i raonant</h1>
+                    </div> 
+                </div>
             </div>
 
-            <div class="solucio impuls">
-                <div class="objecte">
-                    <img src="img/42-pet.png" alt="Pet" id="pet">
-                </div>
-                <div class="objecte">
-                    <img src="img/42-rellotge.png" alt="Rellotge" id="rellotge">
-                </div>
-                <div class="resposta" data-punts="D">
-                    <h1>Actuant impulsivament</h1>
-                </div> 
-            </div>
-
-            <div class="solucio fets">
-                <div class="objecte">
-                    <img src="img/43-bolis.png" alt="Bolis" id="bolis">
-                </div>
-                <div class="objecte">
-                    <img src="img/43-fulls.png" alt="fulls" id="fulls">
-                </div>
-                <div class="objecte">
-                    <img src="img/43-lupa.png" alt="Lupa" id="lupa">
-                </div>
-                <div class="resposta" data-punts="A">
-                    <h1>Analitzant els fets i raonant</h1>
-                </div> 
-            </div>
-
-            <div class="solucio tecno">
-                <div class="objecte">
-                    <img src="img/44-mapa.png" alt="Mapa" id="mapa">
-                </div>
-                <div class="objecte">
-                    <img src="img/44.bruixula.png" alt="bruixula" id="bruixula">
-                </div>
-                <div class="objecte">
-                    <img src="img/43-lupa.png" alt="Lupa" id="lupa">
-                </div>
-                <div class="resposta" data-punts="A">
-                    <h1>Com una aventura!</h1>
+            <div class="frame aventura">
+                <div class="frame-inner">
+                    <div class="objecte mapa">
+                        <img src="img/44-mapa.png" alt="Mapa">
+                    </div>
+                    <div class="objecte bruixula">
+                        <img src="img/44.bruixula.png" alt="bruixula">
+                    </div>
+                    <div class="resposta" data-punts="A">
+                        <h1>Com una aventura!</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-  <script src="js/js.js"></script>
+    <script type="module" src="js/pregunta2.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="js/comuna.js"></script>
 </body>
 </html>

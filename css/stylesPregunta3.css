@@ -67,6 +67,7 @@ body.poder{
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
+  translate: transdom;
 }
 
 .sticky-header h1, .sticky-header p{
@@ -310,7 +311,6 @@ body.problemes{
   font-family: 'hoefler text';
   color: var(--Crema);
   /* prevent the default browser scrollbar on the 'poder' pages */
-  overflow: hidden;
 }
 .problemes img{
   width: 100%;
@@ -330,36 +330,190 @@ body.problemes{
 .sticky1{
   position: relative;
   width: 100%;
-  height: 100svh;
+  height: 100vh;
   padding: 2rem;
-  background-color: var(--TaronjaFosc);
+  background-color: var(--TurquesaMitja);
   color: var(--Crema);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
 
 .sticky-header1{
   position: absolute;
-  top: 20%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
-.sticky-header h1, .sticky-header p{
+.sticky-header1 h1{
   position: relative;
   text-align: center;
   will-change: transform, opacity;
-  transform: translateY(40px);
-  opacity: 0;
-}
+  opacity: 1;
+  transform: translateY(300px);
 
+}
+.contenidor-inner h1{
+  font-size: 3rem;
+}
 .contenidor-problema{
   position: relative;
-  width: 50%;
-  height: 50%;
+  height: 100vh;
+  width: 100%;
   display: flex;
   perspective: 1000px;
-  transform: translateY(40px);
   will-change: width;
+  overflow: hidden;
+}
+.frame{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+
+
+.frame-inner{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+}
+.objecte{
+  width: 600px;
+  position: absolute;
+}
+
+.problemes .Quiz-Header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.problemes .resposta{
+  position: relative; 
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.frame h1{
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 10px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+  position: relative;
+  width: 500px;
+  text-align: center;
+}
+
+.frame h1:hover{
+  transform: scale(1.01);
+  background-color: var(--Crema);
+  color: var(--TaronjaFosc);
+  opacity: 0.8;
+}
+
+
+
+/*tecnologia*/
+.frame.tecno{
+  opacity: 1;
+}
+.frame.tecno .resposta{
+  left: 5%;
+  top: 25%; 
+}
+.objecte.auriculars{
+  top: 0%;
+  right: 0%;
+  transition: transform 0.3 ease;
+  rotate: 20deg;
+}
+.objecte.mobil{
+  bottom: 15%;
+  left: 10%;
+  transition: transform 0.3 ease;
+  rotate: 10deg;
+}
+
+/*impuls*/
+.frame.impuls{
+  opacity: 1;
+}
+.frame.impuls .resposta{
+  top: 60%;
+  left: 50%;
+}
+
+.objecte.pet{
+  top: -10%;
+  right: 0%;
+  transition: transform 0.3 ease;
+  rotate: -90deg;
+}
+.objecte.rellotge{
+  width: 500px;
+  top: 20%;
+  left: 5%;
+  transition: transform 0.3 ease;
+  rotate: -40deg;
+}
+/*fets*/
+.frame.fets{
+  opacity: 1;
+}
+.frame.fets .resposta{
+  left: 5%;
+  top: 65%; 
+}
+.objecte.bolis{
+  top: 35%;
+  left: 55%;
+  transition: transform 0.3 ease;
+  rotate: 30deg;
+  width: 450px;
+
+}
+.objecte.fulls{
+  top: 10%;
+  right: 0%;
+  transition: transform 0.3 ease;
+  rotate: -10deg;
+}
+.objecte.lupa{
+  width: 500px;
+  top: 10%;
+  left: 5%;
+  transition: transform 0.3 ease;
+  rotate: 70deg;
+}
+/*impuls*/
+.frame.aventura{
+  opacity: 1;
+}
+.frame.aventura .resposta{
+  top: 60%;
+  left: 50%;
+}
+
+.objecte.mapa{
+  top: 10%;
+  left: 5%;
+  transition: transform 0.3 ease;
+  rotate: 80deg;
+  width: 750px;
+}
+.objecte.bruixula{
+  width: 500px;
+  top: 20%;
+  left: 5%;
+  transition: transform 0.3 ease;
+  rotate: -20deg;
+  width: 300px;
 }
