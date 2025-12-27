@@ -670,12 +670,196 @@ body.apats{
 }
 
 /*RESULTAT*/
-.fons{
-  width: 100px;
+body.resultat{
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  background-color: var(--Negre);
 }
-.fons-dins.cel{
-  width: 100vh;
+.resultat .Quiz-Header{
+  background-color: var(--TurquesaFosc);
+}
+.fons-dins.cel img{
   object-fit: cover;
+  aspect-ratio: 6/7;
+  width: 100%;
+  opacity: 0.6;
+}
+.fons-dins.nau{
+  position: absolute;
+  width:500px;
+  top:5%;
+}
+.fons-dins.nau img{
+  object-fit: cover;
+  width: 100%;
+}
+.fons-dins.planeta{
+  position: absolute;
+  width:1000px;
+  top:60%;
+  left: 16%;
+}
+.fons-dins.planeta img{
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1;
+}
+.fons-dins.llum{
+  position: absolute;
+  height: 70%;
+  top: 0;
+  left: 31%;
+}
+.fons-dins.llum img{
+  object-fit: cover;
+}
+.text{
+  position: absolute;
+  top: 10%;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  top: 20%;
+  left: 38%;
+}
+.text-titol{
+  position: relative;
+  justify-items: center;
+  align-items: center;
+}
+.text h1{
+  color: var(--Blanc);
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1; 
+
+}
+.text p{
+  color: var(--Crema);
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1; 
+  
+}
+.text-titol.noms{
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  justify-items: center ;
+}
+
+.personatge-nom{
+  position: absolute;
+  width: 600px;
+}
+.text{
+  opacity: 1;
+}
+.img-person{
+  position: absolute;
+  top:0%;
+  width: 1320px;
+  height: 832px;
+  left: 0%;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+
+}
+.img-person img{
+  object-fit: cover;
+  width: 100%;
+}
+
+.img-person.doraemon{
+  opacity: 1;
+  width: 400px;
+  left: 40%;
+  top: 10%;
+}
+.img-person.conan{
+  opacity: 1;
+  width: 150px;
+  left: 48%;
+  top: 44%;
+}
+.img-person.pingu{
+  opacity: 1;
+  width: 200px;
+  left: 50%;
+  top: 50%;
+}
+.img-person.espies{
+  opacity: 1;
+  left: 30%;
+  top: 40%;
+  width: 50%;
+}
+.img-person.bessones{
+  opacity: 1;
+  left: 45%;
+  top: 25%;
+  width: 20%;
+}
+.descripcio{
+  position: absolute;
+  top:100%;
+  width: 500px;
+  left: 24%;
+  justify-content: center;
+  text-align: center;
+  
+
+}
+.descripcio h1{
+  color: var(--TurquesaFosc);
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.cercle{
+  width: 700px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    rgba(255,255,255,0.7) 40%,
+    rgba(255,255,255,0) 70%
+  );
+  position: absolute;
+  justify-content: center;
+  top:80%;
+  left:24%;
+}
+a.comencar{
+  position: absolute;
+  top: 200%;
+  left: 43%;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+  pointer-events: auto;
+  width: 200px;
+  margin: 10px;
+  color: var(--TurquesaFosc);
+  background-color: var(--Crema);
 
   
 }
+.comencar p:hover{
+  transform: scale(1.01);
+  background-color: var(--Crema);
+  color: var(--TaronjaFosc);
+  opacity: 0.8;
+}
+
