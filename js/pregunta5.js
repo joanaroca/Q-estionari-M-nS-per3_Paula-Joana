@@ -161,15 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}, 250);
 	});
 
-	// when a power card is clicked, navigate to problema.html
-	const powerCards = document.querySelectorAll('.card');
-	if (powerCards && powerCards.length) {
-		powerCards.forEach(card => {
-			card.addEventListener('click', function () {
-				window.location.href = 'problema.html';
-			});
-		});
-	}
+	
 });
 
 

@@ -398,21 +398,21 @@ body.problemes{
   pointer-events: auto;
 }
 
-.frame h1{
+.resposta h1{
   font-size: 50px;
   font-weight: 500;
   line-height: 1;
-  padding: 10px;
+  padding: 15px;
   border-radius: 20px;
   transition: transform 0.3s ease;
   transition: color 0.5s ease;
   transition: background-color 0.5s ease;
   position: relative;
-  width: 500px;
   text-align: center;
+  width: fit-content;
 }
 
-.frame h1:hover{
+.resposta h1:hover{
   transform: scale(1.01);
   background-color: var(--Crema);
   color: var(--TaronjaFosc);
@@ -493,13 +493,13 @@ body.problemes{
   transition: transform 0.3 ease;
   rotate: 70deg;
 }
-/*impuls*/
+/*aventira*/
 .frame.aventura{
   opacity: 1;
 }
 .frame.aventura .resposta{
   top: 60%;
-  left: 50%;
+  left: 65%;
 }
 
 .objecte.mapa{
@@ -517,3 +517,143 @@ body.problemes{
   rotate: -20deg;
   width: 300px;
 }
+/*PREGUNTA 2 AQUÍ , ÀPATSSSS*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+body.apats{
+  font-family: 'hoefler text';
+  color: var(--Crema);
+  /* prevent the default browser scrollbar on the 'poder' pages */
+}
+.apats img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.apats h1{
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1;   
+}
+.apats p{
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1;
+}
+.sticky4{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+  background-color: var(--TurquesaMitja);
+  color: var(--Crema);
+  overflow: hidden;
+}
+
+.sticky-header4{
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.sticky-header4 h1{
+  position: relative;
+  text-align: center;
+  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(300px);
+
+}
+
+.contenidor-apats{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  perspective: 1000px;
+  will-change: width;
+  overflow: hidden;
+}
+.apats .frame{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+}
+
+
+.apats .frame-inner{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+}
+.apats .objecte{
+  width: 470px;
+  position: absolute;
+}
+
+.apats .Quiz-Header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+}
+.apats .resposta{
+  position: relative; 
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.apats .resposta h1{
+  font-size: 50px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 15px;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  transition: color 0.5s ease;
+  transition: background-color 0.5s ease;
+  position: relative;
+  text-align: center;
+  width: fit-content;
+}
+
+.apats .resposta h1:hover{
+  transform: scale(1.01);
+  background-color: var(--Crema);
+  color: var(--TaronjaFosc);
+  opacity: 0.8;
+}
+.objecte.pasta{
+  top: 18%;
+  left: 34%;
+  will-change: transform;
+}
+.objecte.peix{
+  top: 18%;
+  left: 34%;
+  will-change: transform;
+}
+.objecte.arros{
+  top: 18%;
+  left: 34%;
+  will-change: transform;
+
+}
+.objecte.pizza{
+  top: 18%;
+  left: 34%;
+  will-change: transform;
+
+}
+
+

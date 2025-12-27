@@ -10,12 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const stickyHeader = document.querySelector('.sticky-header1 h1');
     const contenidorProblema = document.querySelector('.contenidor-problema');
-    const frames = document.querySelectorAll('.frame');
     const frameTecno = document.querySelector('.frame.tecno');
     const frameImpuls = document.querySelector('.frame.impuls');
     const frameFets = document.querySelector('.frame.fets');
     const frameAventura = document.querySelector('.frame.aventura');
 
+    //les y aquí
+    const entradaY = 1000;
+    const dinsY = 0;
+    const sortidaY = -1000;
+
+    let yEntrar
+    let ySortir
+
+    //som-hi
 
 
     let isTitleAnimationCompleted = false;
@@ -43,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				pinSpacing: true,
 				onUpdate: (self) => {
 					const progress = self.progress;
-					
+					//titulin
 					if (progress >= 0.01 && progress < 0.1) {
 						const headerProgress = gsap.utils.mapRange(
 							0.01, 0.1, 0, 1, progress
@@ -63,49 +71,127 @@ document.addEventListener('DOMContentLoaded', () => {
 						});
 					}
                     isTitleAnimationCompleted = true;  
-                    
+
+                    //fem-ho per parts, primer el Tecno :)
                    if (progress >= 0.1 && isTitleAnimationCompleted && progress <0.2) {
-                    const frameProgress1 = gsap.utils.mapRange(
+                    const frameProgressTecnoEntrada = gsap.utils.mapRange(
                         0.1, 0.2, 0, 1, progress
                     );
 
-                    const yArriba1 = gsap.utils.mapRange(0, 1, 1000, 0, frameProgress1)
+                    yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressTecnoEntrada)
 
                     gsap.to(frameTecno,{
-                        y: yArriba1,
+                        y: yEntrar,
                     })
+                   
                     } else if (progress < 0.1){
                         gsap.to(frameTecno, {
-                            y: 1000,
+                            y: entradaY,
                         });
-                    } else if (progress >= 0.2 && progress < 0.3){
+                       
+                    } else if (progress >= 0.2 && progress < 0.325){
                         gsap.to(frameTecno, {
-                            y: 0,
+                            y: dinsY,
                         });
-                    }
-                    if (progress >= 0.3 && progress < 0.4){
-                        const frameProgressMarxa = gsap.utils.mapRange(
-                        0.2, 0.3, 0, 1, progress
+                    } else if(progress >= 0.325){
+                        const frameProgressTecnoSortida = gsap.utils.mapRange(
+                        0.325, 0.425, 0, 1, progress
                         );
 
-                        const yMarxa1 = gsap.utils.mapRange(0, 1, 0, -500, frameProgressMarxa)
-                        const yArriba2 = gsap.utils.mapRange(0, 1, 1000, 0, frameProgressMarxa)
+                        ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressTecnoSortida)
 
-                        gsap.to (frameTecno,{
-                            y: yMarxa1,
-                        });
-                        gsap.to (frameAventura,{
-                            y: yArriba2,
-                        });
-                    } else if (progress <= 0.3){
-                        gsap.to(frameAventura,{
-                            y:1000,
-                        });
-                    } else if (progress >= 0.4 && progress < 0.5){
-                        gsap.to(frameAventura, {
-                            y: 0,
-                        });
+                        gsap.to(frameTecno,{
+                            y: ySortir,
+                        })
                     }
+
+                    //ara toca impuls
+                   if (progress >= 0.325 && isTitleAnimationCompleted && progress <0.425) {
+                    const frameProgressImpulsEntrada = gsap.utils.mapRange(
+                        0.325, 0.425, 0, 1, progress
+                    );
+
+                    yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressImpulsEntrada)
+
+                    gsap.to(frameImpuls,{
+                        y: yEntrar,
+                    })
+                   
+                    } else if (progress < 0.325){
+                        gsap.to(frameImpuls, {
+                            y: entradaY,
+                        });
+                       
+                    } else if (progress >= 0.425 && progress < 0.55){
+                        gsap.to(frameImpuls, {
+                            y: dinsY,
+                        });
+                    } else if(progress >= 0.55){
+                        const frameProgressImpulsSortida = gsap.utils.mapRange(
+                        0.55, 0.675, 0, 1, progress
+                        );
+
+                        ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressImpulsSortida)
+
+                        gsap.to(frameImpuls,{
+                            y: ySortir,
+                        })
+                    }
+                    //ara toca fets
+                   if (progress >= 0.55 && isTitleAnimationCompleted && progress <0.65) {
+                    const frameProgressFetsEntrada = gsap.utils.mapRange(
+                        0.55, 0.65, 0, 1, progress
+                    );
+
+                    yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressFetsEntrada)
+
+                    gsap.to(frameFets,{
+                        y: yEntrar,
+                    })
+                   
+                    } else if (progress < 0.55){
+                        gsap.to(frameFets, {
+                            y: entradaY,
+                        });
+                       
+                    } else if (progress >= 0.65 && progress < 0.775){
+                        gsap.to(frameFets, {
+                            y: dinsY,
+                        });
+                    } else if(progress >= 0.775){
+                        const frameProgressFetsSortida = gsap.utils.mapRange(
+                        0.775, 0.875, 0, 1, progress
+                        );
+
+                        ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressFetsSortida)
+
+                        gsap.to(frameFets,{
+                            y: ySortir,
+                        })
+                    }
+                    //som-hi, ara Aventuraa
+                   if (progress >= 0.775 && isTitleAnimationCompleted && progress <0.875) {
+                    const frameProgressAventuraEntrada = gsap.utils.mapRange(
+                        0.775, 0.875, 0, 1, progress
+                    );
+
+                    yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressAventuraEntrada)
+
+                    gsap.to(frameAventura,{
+                        y: yEntrar,
+                    })
+                   
+                    } else if (progress < 0.775){
+                        gsap.to(frameAventura, {
+                            y: entradaY,
+                        });
+                       
+                    } else if (progress >= 0.875 && progress < 1){
+                        gsap.to(frameAventura, {
+                            y: dinsY,
+                        });
+                    } 
+
                     
 
                    
