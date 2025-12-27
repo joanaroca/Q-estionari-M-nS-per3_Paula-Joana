@@ -549,18 +549,12 @@ body.apats{
   width: 100%;
   height: 100vh;
   padding: 2rem;
-  background-color: var(--TurquesaMitja);
+  background-color: var(--Vermell);
   color: var(--Crema);
   overflow: hidden;
 }
 
-.sticky-header4{
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-}
 
 .sticky-header4 h1{
   position: relative;
@@ -568,7 +562,7 @@ body.apats{
   will-change: transform, opacity;
   opacity: 1;
   transform: translateY(300px);
-
+  padding-bottom: 15px;
 }
 
 .contenidor-apats{
@@ -579,6 +573,7 @@ body.apats{
   perspective: 1000px;
   will-change: width;
   overflow: hidden;
+
 }
 .apats .frame{
   position: absolute;
@@ -607,11 +602,7 @@ body.apats{
   width: 100%;
   z-index: 9999;
 }
-.apats .resposta{
-  position: relative; 
-  cursor: pointer;
-  pointer-events: auto;
-}
+
 
 .apats .resposta h1{
   font-size: 50px;
@@ -637,23 +628,54 @@ body.apats{
   top: 18%;
   left: 34%;
   will-change: transform;
+  transform-origin: center center;
 }
 .objecte.peix{
   top: 18%;
   left: 34%;
   will-change: transform;
+  transform-origin: center center;
 }
 .objecte.arros{
   top: 18%;
   left: 34%;
   will-change: transform;
+  transform-origin: center center;
 
 }
 .objecte.pizza{
   top: 18%;
   left: 34%;
   will-change: transform;
-
+  transform-origin: center center;
 }
 
+.apats .resposta{
+  position: relative; 
+  cursor: pointer;
+  pointer-events: auto;
+}
+.pin-spacer {
+  pointer-events: none;
+}
 
+.pin-spacer > * {
+  pointer-events: auto;
+}
+
+.objecte.resposta {
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/*RESULTAT*/
+.fons{
+  width: 100px;
+}
+.fons-dins.cel{
+  width: 100vh;
+  object-fit: cover;
+
+  
+}

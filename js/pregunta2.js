@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			ScrollTrigger.create({
 				trigger: '.sticky1',
 				start: 'top top',
-				end: `+=${window.innerHeight * 5}px`,
+				end: `+=${window.innerHeight * 10}px`,
 				pin: true,
 				pinSpacing: true,
 				onUpdate: (self) => {

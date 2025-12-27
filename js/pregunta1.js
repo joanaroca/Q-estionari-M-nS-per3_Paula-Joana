@@ -17,10 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //lets i constants aquí
     
-    const entradaY = 1000;
-    const esperaEntradaY = 500;
-    const dinsY = 0;
-    const sortidaY = -1000;
+    const entradaY = 920;
+    const esperaEntradaY = 420;
+    const dinsY = -80;
+    const sortidaY = -1080;
+
+    const dinsD = 0;
+    const sortidaD = 135;
     
     let yEntrar
     let ySortir
@@ -50,15 +53,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			ScrollTrigger.create({
 				trigger: '.sticky4',
 				start: 'top top',
-				end: `+=${window.innerHeight * 5}px`,
+				end: `+=${window.innerHeight * 10}px`,
 				pin: true,
 				pinSpacing: true,
 				onUpdate: (self) => {
 					const progress = self.progress;
 					//titulin
-					if (progress >= 0.1 && progress < 0.2) {
+					if (progress >= 0.1 && progress < 0.15) {
 						const headerProgress = gsap.utils.mapRange(
-							0.1, 0.2, 0, 1, progress
+							0.1, 0.15, 0, 1, progress
 						);
 						const yValue = gsap.utils.mapRange(0, 1, 300, 0, headerProgress);
 						
@@ -69,14 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
 						gsap.to(stickyHeader, {
 							y: 300,
 						});
-					} else if (progress >= 0.2) {
+					} else if (progress >= 0.15) {
 						gsap.to(stickyHeader, {
 							y: 0,
 						});
 					}
                     isTitleAnimationCompleted = true;  
 
-					if (progress < 0.2) {
+					if (progress < 0.15) {
                         gsap.to(framePasta,{
                             y: entradaY,
                         })
@@ -93,15 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     //plat d'espaguetis
                    if (progress >= 0.1 && isTitleAnimationCompleted && progress <0.21) {
-                    const frameProgressPastaEntrada = gsap.utils.mapRange(
-                        0.1, 0.21, 0, 1, progress
-                    );
+                        const frameProgressPastaEntrada = gsap.utils.mapRange(
+                            0.1, 0.21, 0, 1, progress
+                        );
 
-                    yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressPastaEntrada)
+                        yEntrar = gsap.utils.mapRange(0, 1, entradaY, dinsY, frameProgressPastaEntrada)
 
-                    gsap.to(framePasta,{
-                        y: yEntrar,
-                    })
+                        gsap.to(framePasta,{
+                            y: yEntrar,
+                        });
                    
                     } else if (progress < 0.1){
                         gsap.to(framePasta, {
@@ -118,10 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         );
 
                         ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressPastaSortida)
-
+                        
                         gsap.to(framePasta,{
                             y: ySortir,
                         })
+
+                        rotateDins = gsap.utils.mapRange(0, 1, dinsD, sortidaD, frameProgressPastaSortida)
+                        gsap.to(framePasta,{
+                            rotate: rotateDins,
+                        });
                     }
                     //plat de peixitu
                    if (progress >= 0.32 && isTitleAnimationCompleted && progress <0.43) {
@@ -135,25 +143,108 @@ document.addEventListener('DOMContentLoaded', () => {
                         y: yEntrar,
                     })
                    
-                    } else if (progress < 0.1){
+                    } else if (progress >= 0.21  && progress < 0.32){
+                        gsap.to(framePeix, {
+                            y: esperaEntradaY,
+                        });
+                       
+                    } else if (progress < 0.21){
                         gsap.to(framePeix, {
                             y: entradaY,
                         });
                        
-                    } else if (progress >= 0.21 && progress < 0.32){
+                    } else if (progress >= 0.43 && progress < 0.54){
                         gsap.to(framePeix, {
                             y: dinsY,
                         });
-                    } else if(progress >= 0.32){
+                    } else if(progress >= 0.54){
                         const frameProgressPeixSortida = gsap.utils.mapRange(
-                        0.32, 0.43, 0, 1, progress
+                        0.54, 0.65, 0, 1, progress
                         );
 
                         ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressPeixSortida)
 
-                        gsap.to(framePasta,{
+                        gsap.to(framePeix,{
                             y: ySortir,
-                        })
+                        });
+
+                        rotateDins = gsap.utils.mapRange(0, 1, dinsD, sortidaD, frameProgressPeixSortida)
+                        gsap.to(framePeix,{
+                            rotate: rotateDins,
+                        });
+                    }
+
+                    //ara la pizza
+                   if (progress >= 0.54 && isTitleAnimationCompleted && progress <0.65) {
+                    const frameProgressPizzaEntrada = gsap.utils.mapRange(
+                        0.54, 0.65, 0, 1, progress
+                    );
+
+                    yEntrar = gsap.utils.mapRange(0, 1, esperaEntradaY, dinsY, frameProgressPizzaEntrada)
+
+                    gsap.to(framePizza,{
+                        y: yEntrar,
+                    })
+                   
+                    } else if (progress >= 0.43  && progress < 0.54){
+
+                        gsap.to(framePizza, {
+                            y: esperaEntradaY,
+                        });
+                       
+                    } else if (progress < 0.43){
+                        gsap.to(framePizza, {
+                            y: entradaY,
+                        });
+                       
+                    } else if (progress >= 0.65 && progress < 0.76){
+                        gsap.to(framePizza, {
+                            y: dinsY,
+                        });
+                    } else if(progress >= 0.76){
+                        const frameProgressPizzaSortida = gsap.utils.mapRange(
+                        0.76, 0.87, 0, 1, progress
+                        );
+
+                        ySortir = gsap.utils.mapRange(0, 1, dinsY, sortidaY, frameProgressPizzaSortida)
+
+                        gsap.to(framePizza,{
+                            y: ySortir,
+                        });
+
+                        rotateDins = gsap.utils.mapRange(0, 1, dinsD, sortidaD, frameProgressPizzaSortida)
+                        gsap.to(framePizza,{
+                            rotate: rotateDins,
+                        });
+
+                        
+                    }
+                    //arrosset
+                   if (progress >= 0.76 && isTitleAnimationCompleted && progress <0.87) {
+                    const frameProgressArrosEntrada = gsap.utils.mapRange(
+                        0.76, 0.87, 0, 1, progress
+                    );
+
+                    yEntrar = gsap.utils.mapRange(0, 1, esperaEntradaY, dinsY, frameProgressArrosEntrada)
+
+                    gsap.to(frameArros,{
+                        y: yEntrar,
+                    })
+                   
+                    } else if (progress >= 0.65  && progress < 0.76){
+                        gsap.to(frameArros, {
+                            y: esperaEntradaY,
+                        });
+                       
+                    } else if (progress < 0.65){
+                        gsap.to(frameArros, {
+                            y: entradaY,
+                        });
+                       
+                    } else if (progress >= 0.87 && progress < 0.98){
+                        gsap.to(frameArros, {
+                            y: dinsY,
+                        });
                     }
 
                     
