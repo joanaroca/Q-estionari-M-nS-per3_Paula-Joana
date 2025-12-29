@@ -689,6 +689,8 @@ body.resultat{
   position: absolute;
   width:500px;
   top:5%;
+  z-index: 100;
+  left: -500px;
 }
 .fons-dins.nau img{
   object-fit: cover;
@@ -710,6 +712,7 @@ body.resultat{
   height: 70%;
   top: 0;
   left: 31%;
+  opacity: 0;
 }
 .fons-dins.llum img{
   object-fit: cover;
@@ -862,4 +865,3 @@ a.comencar{
   color: var(--TaronjaFosc);
   opacity: 0.8;
 }
-
