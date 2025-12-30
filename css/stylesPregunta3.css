@@ -865,7 +865,7 @@ a.comencar{
 
   
 }
-.comencar p:hover{
+a.comencar:hover{
   transform: scale(1.01);
   background-color: var(--Crema);
   color: var(--TaronjaFosc);

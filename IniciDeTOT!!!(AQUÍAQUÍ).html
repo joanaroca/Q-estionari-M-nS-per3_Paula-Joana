@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Món Súper 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/stylesInici.css">
+    </head>
+    <body class="no-margins">
+        <header class="top-nav" role="banner">
+            <header class="Quiz-Header">
+            <ul>
+                <li>
+                    <a href="IniciDeTOT!!!(AQUÍAQUÍ).html">MónSúper3</a>
+                </li>
+                <li>
+                    <a href="IniciDeTOT!!!(AQUÍAQUÍ).html">Començar</a>
+                </li>
+            </ul>
+        </header>
+
+        <!-- Hero with background sky, centered planet and translucent button -->
+        <main class="page-hero" role="main">
+            <div class="hero-inner">
+                <img src="img/1-planeta.png" alt="Planeta 1" class="planet" id="planeta">
+
+                <button class="comencar btn-translucent" id="showNauBtn"  aria-controls="nau" aria-pressed="false">Començar</button> 
+
+                <!-- Nau initially hidden; will appear when button is pressed -->
+                <img src="img/1-nau.png" alt="Nau espacial" id="nau" class="nau" aria-hidden="true">
+            </div>
+
+            <!-- Overlay shown when zoomed-out: cream translucent layer + big title + down arrow -->
+            <div class="zoom-overlay" role="region" aria-hidden="true">
+                <h1 class="big-title site-h1">Descobreix a quin món de dibuixos pertanys!</h1>
+                <button id="downArrowBtn" class="down-arrow" aria-label="Anar a la informació">Som-hi</button>
+            </div>
+        </main>
+
+
+        <script src="js/InciDeTot.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+        <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis"></script>
+        <script src="js/comuna.js"></script>
+        </body>
+    </html>
