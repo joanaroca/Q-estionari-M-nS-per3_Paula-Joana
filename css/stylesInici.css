@@ -188,14 +188,29 @@ button.comencar:hover{
     color: var(--Negre);
     padding: 8px 12px;
     all: unset;
-    
     font-size: 2rem;
     font-weight: 800;
     line-height: 1;
     text-align: center;
-    
-    color: var(--Negre);
+    color: var(--Crema);
+    background-color: var(--Negre);
+    padding: 7px 20px;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transition: color 0.5s ease;
+    transition: background-color 0.5s ease;
+    z-index:9999,
 }
+
+.down-arrow:hover{
+  transform: scale(1.01);
+  background-color: var(--TurquesaFosc);
+  color: var(--Crema);
+  opacity: 0.9;
+}
+
 .page-hero.zoom-out .btn-translucent{
     opacity: 0;
     transform: translateY(10px);

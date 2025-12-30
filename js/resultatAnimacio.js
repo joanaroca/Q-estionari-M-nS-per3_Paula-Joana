@@ -5,9 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(t => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
+  
+  
 
   const vol = gsap.timeline();
 
+   
     vol.to(".nau", {
     duration: 1.9,
     x: 1300,
@@ -102,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
     },'-=0.4')
     
-
     //surar
     vol.call(() => {
         gsap.to(".nau", {

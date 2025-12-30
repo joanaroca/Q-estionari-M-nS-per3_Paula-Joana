@@ -813,13 +813,12 @@ body.resultat{
 }
 .descripcio-contenidor, .descripcio{
   position: absolute;
-  top:100%;
+  top:95%;
   width: 500px;
   left: 24%;
   justify-content: center;
   text-align: center;
   
-
 }
 .descripcio h1{
   color: var(--TurquesaFosc);
@@ -834,7 +833,7 @@ body.resultat{
   background: radial-gradient(
     circle,
     #ffffff 0%,
-    rgba(255,255,255,0.7) 40%,
+    rgba(255,255,255,0.7) 60%,
     rgba(255,255,255,0) 70%
   );
   position: absolute;
@@ -844,7 +843,7 @@ body.resultat{
 }
 a.comencar{
   position: absolute;
-  top: 200%;
+  top: 180%;
   left: 43%;
   text-decoration: none;
   font-size: 2rem;
@@ -860,16 +859,15 @@ a.comencar{
   pointer-events: auto;
   width: 200px;
   margin: 10px;
-  color: var(--TurquesaFosc);
-  background-color: var(--Crema);
+  color: var(--Crema);
+  background-color: var(--TurquesaMitja);
 
   
 }
 a.comencar:hover{
   transform: scale(1.01);
-  background-color: var(--Crema);
-  color: var(--TaronjaFosc);
-  opacity: 0.8;
+  background-color: var(--TurquesaFosc);
+  color: var(--Crema);
 }
 .personatge-nom, .img-person, .descripcio, .text-titol.intro{
   opacity: 0;
