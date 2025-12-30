@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	gsap.ticker.lagSmoothing(0);
 
-    const stickyHeader = document.querySelector('.sticky-header1 h1');
+    const stickyHeader = document.querySelector('.sticky-header1');
     const contenidorProblema = document.querySelector('.contenidor-problema');
     const frameTecno = document.querySelector('.frame.tecno');
     const frameImpuls = document.querySelector('.frame.impuls');
@@ -43,7 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
         mm.add('(min-width: 1000px)', () => {
-			ScrollTrigger.create({
+			
+            ScrollTrigger.create({
 				trigger: '.sticky1',
 				start: 'top top',
 				end: `+=${window.innerHeight * 10}px`,
@@ -56,18 +57,18 @@ document.addEventListener('DOMContentLoaded', () => {
 						const headerProgress = gsap.utils.mapRange(
 							0.01, 0.1, 0, 1, progress
 						);
-						const yValue = gsap.utils.mapRange(0, 1, 300, 0, headerProgress);
+						const yValue = gsap.utils.mapRange(0, 1, 0, -300, headerProgress);
 						
 						gsap.to(stickyHeader, {
 							y: yValue,
 						});
 					} else if (progress < 0.01) {
 						gsap.to(stickyHeader, {
-							y: 300,
+							y: 0,
 						});
 					} else if (progress >= 0.1) {
 						gsap.to(stickyHeader, {
-							y: 0,
+							y: -300,
 						});
 					}
                     isTitleAnimationCompleted = true;  
@@ -82,8 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     gsap.to(frameTecno,{
                         y: yEntrar,
-                    })
-                   
+                    });
+                
                     } else if (progress < 0.1){
                         gsap.to(frameTecno, {
                             y: entradaY,

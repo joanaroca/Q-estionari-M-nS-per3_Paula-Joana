@@ -132,15 +132,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		}, 250);
 	});
 
-		// clicking any of the answer images should navigate to pregunta5.html
-		// (images: 5-curt, 5-correcte, 5-complicat, 5-equivocat)
-		const respostas = document.querySelectorAll('.resposta');
-		if (respostas && respostas.length) {
-			respostas.forEach(img => {
-				img.addEventListener('click', function () {
-					// direct navigation when an answer is clicked
-					window.location.href = 'pregunta5.html';
-				});
-			});
-		}
+		
 });

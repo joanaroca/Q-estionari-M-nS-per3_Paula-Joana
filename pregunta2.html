@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body class="problemes">
+<body class="problemes page">
     <header class="Quiz-Header">
             <ul>
                 <li>
@@ -20,9 +20,7 @@
             </ul>
         </header>
     <div class="sticky1">
-        <div class="sticky-header1">
-            <h1>Com afrontes els problemes?</h1>
-        </div>
+        
         <div class="contenidor-problema">
             <div class="frame tecno">
                 <div class="frame-inner">
@@ -81,6 +79,10 @@
                 </div>
             </div>
         </div>
+        <div class="sticky-header1">
+            <h1>Com afrontes els problemes?</h1>
+            <p>Llisca i selecciona</p>
+        </div>
     </div>
 
     <script type="module" src="js/pregunta2.js"></script>
@@ -88,5 +90,9 @@
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="js/comuna.js"></script>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+    </script>
 </body>
 </html>

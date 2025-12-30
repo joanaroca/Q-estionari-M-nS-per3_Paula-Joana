@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body class="apats">
+<body class="apats page">
     <header class="Quiz-Header">
             <ul>
                 <li>
@@ -22,6 +22,8 @@
     <div class="sticky4">
         <div class="sticky-header4">
             <h1>Tria el teu àpat preferit</h1>
+            <p>Llisca i selecciona<p>
+            
         </div>
         <div class="contenidor-apats">
             <div class="frame pasta">
@@ -61,5 +63,10 @@
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="js/comuna.js"></script>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+    </script>
+
 </body>
 </html>

@@ -1,6 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-  gsap.registerPlugin(ScrollTrigger);
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
+    
 	const lenis = new Lenis();
 	lenis.on('scroll', ScrollTrigger.update);
 	gsap.ticker.add((time) => {
@@ -8,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 	gsap.ticker.lagSmoothing(0);
 
-    const stickyHeader = document.querySelector('.sticky-header4 h1');
+    const stickyHeader = document.querySelectorAll('.sticky-header4 h1, .sticky-header4 p');
     const contenidorProblema = document.querySelector('.contenidor-problema');
     const framePasta = document.querySelector('.objecte.pasta');
     const framePeix = document.querySelector('.objecte.peix');
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const dinsD = 0;
     const sortidaD = 135;
+    
     
     let yEntrar
     let ySortir
@@ -50,6 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 
         mm.add('(min-width: 1000px)', () => {
+            gsap.set(stickyHeader, { y: 300, opacity: 1 });
+
+            gsap.set([framePasta, framePeix, framePizza, frameArros], {
+            y: entradaY,
+            rotate: 0,
+            opacity: 1
+            });
+
 			ScrollTrigger.create({
 				trigger: '.sticky4',
 				start: 'top top',
@@ -68,16 +79,19 @@ document.addEventListener('DOMContentLoaded', () => {
 						gsap.to(stickyHeader, {
 							y: yValue,
 						});
+                        
 					} else if (progress < 0.1) {
 						gsap.to(stickyHeader, {
 							y: 300,
 						});
+                        
 					} else if (progress >= 0.15) {
 						gsap.to(stickyHeader, {
 							y: 0,
 						});
 					}
-                    isTitleAnimationCompleted = true;  
+                    isTitleAnimationCompleted = true; 
+                  
 
 					if (progress < 0.15) {
                         gsap.to(framePasta,{
@@ -251,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                    
     }})})}
+
     initAnimations();
 
 	let resizeTimer;

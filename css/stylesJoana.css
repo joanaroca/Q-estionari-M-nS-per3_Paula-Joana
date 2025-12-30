@@ -17,7 +17,6 @@
     padding: 0;
 }
 
-
 /*PODERS MÀGICS*/
 * {
   margin: 0;
@@ -614,4 +613,34 @@ html, body {
 .options button.active {
   background: black;
   color: white;
+}
+
+
+
+.page {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.page.is-loaded {
+  opacity: 1;
+}
+
+.page.is-fading {
+  opacity: 0;
+}
+.camins.page{
+  background-color: var(--TaronjaClar);
+}
+.poder.page{
+  background-color: var(--TurquesaFosc);
+}
+p.scroll{
+  position: absolute;
+  top: 50%;
+  left: 44%;
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  text-align: center;
 }

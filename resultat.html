@@ -6,7 +6,7 @@
     <title>Final - Món Súper 3</title>
     <link rel="stylesheet" href="css/stylesPregunta3.css">
 </head>
-<body class="resultat">
+<body class="resultat page">
     <header class="Quiz-Header">
             <ul>
                 <li>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="img-person">
+            <div class="img-person-contenidor">
                 <div class="img-person conan">
                     <img src="img/0-conan.png" alt="Detectiu Conan">
                 </div>
@@ -73,21 +73,45 @@
                 </div>
             </div>
             <div class="cercle"></div>
-            <div class="descripcio">
+            <div class="descripcio-contenidor">
                 <div class="descripcio conan">
-                    <h1>Text</h1>
+                    <h1>Ets una persona extremadament intel·ligent i analítica, amb una gran capacitat per observar detalls que els altres passen per alt. Sempre busques la veritat i tens un fort sentit de la justícia. Mantens la calma fins i tot en situacions difícils i prens decisions amb el cap fred.
+
+                    Tot i ser reservat, ets protector, empàtic i molt fiable. La gent confia en tu perquè transmetes seguretat i serenor. Encara que no mostres gaire les emocions, les vius intensament.
+
+                    Amistat: Doraemon
+                    Amor: Les Tres Bessones
+                    </h1>
                 </div>
                 <div class="descripcio bessones">
-                    <h1>Text</h1>
+                    <h1>Ets una persona molt imaginativa i aventurera, sempre disposada a descobrir mons nous i a viure experiències inesperades. T’agrada divertir-te i fer entremaliadures, encara que a vegades això et porta a embolics sense voler. Et mous més per la curiositat i l’emoció que per la responsabilitat.
+
+                    Ets molt sociable, afectuosa i optimista. Treballes molt bé en equip, ets lleial amb qui estimes i tens un gran cor. Al teu costat, tot es viu amb més alegria i fantasia.
+
+                    Amistat: En Pingu
+                    Amor: Detectiu Conan
+                    </h1>
                 </div>
                 <div class="descripcio espies">
-                    <h1>Text</h1>
+                    <h1>Ets una persona molt activa, resolutiva i adaptable. Davant qualsevol problema, saps reaccionar ràpid i trobar solucions creatives. Ets disciplinada i responsable, però també saps divertir-te i gaudir del treball en equip.
+
+                    Ets sociable, segura de tu mateixa i empàtica. Tot i que a vegades t’estresses quan les coses es compliquen, sempre acabes sortint-te’n amb estil. Amb tu, les missions impossibles semblen possibles.
+
+                    Amistat: Les Tres Bessones
+                    Amor: Detectiu Conan
+                    </h1>
                 </div>
                 <div class="descripcio pingu">
-                    <h1>Text</h1>
+                    <h1>Ets una persona molt expressiva, espontània i plena d’energia. Et mous per impulsos i emocions, i sovint et fiques en situacions caòtiques sense adonar-te’n. Tens una manera única de comunicar-te i fer-te entendre, encara que sigui amb un “noot noot”.
+
+                    Ets afectuós amb els teus, divertit i molt vital. El teu humor canvia ràpidament, però sempre actues des del cor. Amb tu, mai hi ha avorriment.
+
+                    Amistat: Les Tres Bessones
+                    Amor: Les Espies de Veritat
+                    </h1>
                 </div>
                 <div class="descripcio doraemon">
-                    <h1>Ets una persona molt creativa i sempre trobes solucions als problemes, encara que els escenaris extrems t’espanten. T’agrada ajudar als altres i a vegades el símpotme de la salvadora et porta a siutacions perjudicials i desastroses. Et pesa més el sentir-te útil que la ètica.
+                    <h1>Ets una persona molt creativa i sempre trobes solucions als problemes, encara que els escenaris extrems t’espanten. T’agrada ajudar als altres i a vegades et porta a siutacions perjudicials i desastroses. Et pesa més el sentir-te útil que la ètica.
                     Ets una persona sociable, afectuosa i força tranquil·la. Ets bona amiga, compassiva i protectora, es passa molta bona estona al teu costat.
 
                     Amistat: Detectiu Conan. Amor: Les Tres Bessones
@@ -97,12 +121,16 @@
             <a href="index.html" class="comencar">Començar</a>   
         </div>
 
-    <script type="module" src="js/resultatAnimacio.js"></script>
+    <script src="js/resultatAnimacio.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/MotionPathPlugin.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="js/comuna.js"></script>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+    </script>
 </body>
 </body>
 </html>
