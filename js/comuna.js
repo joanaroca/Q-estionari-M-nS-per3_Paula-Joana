@@ -28,13 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initStorage();
 
-  /* =========================
-     CLICK A RESPOSTES
-  ========================= */
   document.querySelectorAll(".resposta").forEach(resposta => {
     resposta.addEventListener("click", () => {
 
-      if (bloquejat) return; // 🚫 evita doble click
+      if (bloquejat) return; 
       bloquejat = true;
 
       const punts = resposta.dataset.punts; // ex: "A" o "A,B"
@@ -61,9 +58,6 @@ setTimeout(() => {
     });
   });
 
-  /* =========================
-     CANVI DE PÀGINA
-  ========================= */
   function anarASeguent() {
     const match = location.pathname.match(/pregunta(\d+)\.html/);
     if (!match) return;
@@ -79,9 +73,6 @@ setTimeout(() => {
     }
   }
 
-  /* =========================
-     CÀLCUL PERSONATGE (AMB EMPAT 🎲)
-  ========================= */
   function calcularPersonatgeFinal() {
     const data = JSON.parse(localStorage.getItem("quizResultats"));
 
@@ -134,8 +125,10 @@ setTimeout(() => {
   /* =========================
      RESET QUIZ
   ========================= */
-  document.querySelector(".comencar")?.addEventListener("click", () => {
+  document.querySelectorAll(".comencar, .reiniciar").forEach(el => {
+  el.addEventListener("click", () => {
     localStorage.clear();
   });
+});
 
 });
