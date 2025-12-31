@@ -844,7 +844,7 @@ body.resultat{
 a.comencar{
   position: absolute;
   top: 180%;
-  left: 43%;
+  left: 42.4%;
   text-decoration: none;
   font-size: 2rem;
   font-weight: 800;
@@ -860,13 +860,13 @@ a.comencar{
   width: 200px;
   margin: 10px;
   color: var(--Crema);
-  background-color: var(--TurquesaMitja);
+  background-color: var(--TurquesaFosc);
 
   
 }
 a.comencar:hover{
   transform: scale(1.01);
-  background-color: var(--TurquesaFosc);
+  background-color: var(--TurquesaMitja);
   color: var(--Crema);
 }
 .personatge-nom, .img-person, .descripcio, .text-titol.intro{

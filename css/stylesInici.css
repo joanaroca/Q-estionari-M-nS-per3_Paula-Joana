@@ -64,14 +64,13 @@ button.comencar{
   pointer-events: auto;
   width: 200px;
   margin: 10px;
-  color: var(--TurquesaFosc);
-  background-color: var(--Crema);
+  color: var(--Crema);
+  background-color: var(--TurquesaFosc);
 }
 button.comencar:hover{
   transform: scale(1.01);
-  background-color: var(--TurquesaFosc);
-  color: var(--Crema);
-  opacity: 0.9;
+  background-color: var(--Crema);
+  color: var(--TurquesaFosc);
 }
 /* Top navigation styles */
 
