@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quin poder tindries?</title>
+    <link rel="stylesheet" href="css/stylesJoana.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+</head>
+<body class="poder page">
+    <header class="Quiz-Header">
+        <ul>
+            <li>
+                <a href="index.html">MónSúper3</a>
+            </li>
+            <li>
+                5
+            </li>
+        </ul>
+    </header>
+    <section class="sticky">
+        <div class="sticky-header">
+            <h1>Quin poder tindries?</h1>
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="card-1">
+                <div class="card-front">
+                    <img src="img/6-poders_01.jpg" alt=" " />
+                </div>
+                <div class="card-back">
+                    <span>( 01 )</span>
+                    <p class="resposta" data-punts="A">Llegir la ment</p>
+                </div>
+            </div>
+            <div class="card" id="card-2">
+                <div class="card-front">
+                    <img src="img/6-poders_02.jpg" alt=" " />
+                </div>
+                <div class="card-back">
+                    <span>( 02 )</span>
+                    <p class="resposta" data-punts="B">Invisibilitat</p>
+                </div>
+            </div>
+            <div class="card" id="card-3">
+                <div class="card-front">
+                    <img src="img/6-poders_03.jpg" alt=" " />
+                </div>
+                <div class="card-back">
+                    <span>( 03 )</span>
+                    <p class="resposta" data-punts="D,C">Parlar amb els animals</p>
+                </div>
+            </div>
+            <div class="card" id="card-4">
+                <div class="card-front">
+                    <img src="img/6-poders_04.jpg" alt=" " />
+                </div>
+                <div class="card-back">
+                    <span>( 04 )</span>
+                    <p class="resposta" data-punts="E">Teletrans- portació</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="js/pregunta5.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="js/passa.js"></script>
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.go(1);
+    </script>
+    
+</body>
+</html>
