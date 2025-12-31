@@ -904,3 +904,9 @@ h1.scroll{
 .sticky4 p{
   text-align: center;
 }
+.reiniciar{
+  transition: transform 0,4s ease;
+}
+.reiniciar:hover{
+  transform: scale(1.01);
+}
